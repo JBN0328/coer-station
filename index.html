@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>COER STATION • CORTIS Unofficial Fan Site</title>
     
     <!-- 載入圓潤英文字型 Fredoka 與萬用繁中字型 Noto Sans TC -->
@@ -21,54 +21,76 @@
             --accent-orange: #FFA834;
             --white: #FFFFFF;
             --border-style: 2px solid var(--dark-green);
-            --sticker-shadow: 4px 4px 0px var(--dark-green);
+            --sticker-shadow: 3px 3px 0px var(--dark-green);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+        
+        /* 鎖定全頁寬度，徹底杜絕手機橫向跑版 */
+        html, body { 
+            scroll-behavior: smooth; 
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden !important; 
+        }
 
-        /* 滿版點陣網格背景 */
         body {
             background-color: var(--bg-color);
             background-image: radial-gradient(var(--main-green) 1px, transparent 1px);
-            background-size: 24px 24px;
+            background-size: 20px 20px;
             font-family: 'Fredoka', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
             color: var(--dark-green);
-            line-height: 1.6;
-            overflow-x: hidden;
+            line-height: 1.5;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* 頂部導覽列 */
+        /* 頂部導覽列（預設手機版：上下排列，避免擠壓跑版） */
         .navbar {
             background-color: var(--main-green);
-            padding: 12px 4%;
+            padding: 10px 12px;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
+            gap: 10px;
             position: sticky;
             top: 0;
             z-index: 100;
             border-bottom: var(--border-style);
-            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        /* 平板與電腦版：橫向排列 */
+        @media (min-width: 768px) {
+            .navbar {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 12px 4%;
+            }
         }
 
         .logo-group {
             display: flex;
             align-items: center;
-            gap: 6px;
+            justify-content: center;
+            gap: 4px;
             cursor: pointer;
+            max-width: 100%;
         }
 
         .logo-pair {
             display: flex;
             align-items: center;
+            flex-shrink: 0;
         }
 
         .logo-pair img {
-            height: 32px;
+            height: 22px;
             width: auto;
-            margin-left: -8px;
+            margin-left: -5px;
+        }
+
+        @media (min-width: 768px) {
+            .logo-pair img { height: 32px; margin-left: -8px; }
         }
 
         .logo-pair img:first-child { margin-left: 0; }
@@ -76,23 +98,38 @@
         .logo-text {
             font-family: 'Fredoka', sans-serif;
             color: var(--white);
-            font-size: 26px;
+            font-size: 19px;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             text-shadow: 2px 2px 0px var(--dark-green);
-            margin: 0 4px;
+            white-space: nowrap;
         }
 
-        .nav-links { display: flex; gap: 8px; list-style: none; flex-wrap: wrap; }
+        @media (min-width: 768px) {
+            .logo-text { font-size: 26px; }
+        }
+
+        .nav-links { 
+            display: flex; 
+            gap: 6px; 
+            list-style: none; 
+            flex-wrap: wrap; 
+            justify-content: center;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links { width: auto; }
+        }
 
         .nav-btn {
             font-family: 'Fredoka', 'Noto Sans TC', sans-serif;
             background: var(--white);
             color: var(--dark-green);
-            padding: 6px 16px;
+            padding: 4px 12px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 14px;
+            font-size: 13px;
             border: var(--border-style);
             box-shadow: 2px 2px 0px var(--dark-green);
             transition: all 0.15s ease;
@@ -102,18 +139,17 @@
         .nav-btn:hover, .nav-btn.active {
             background-color: var(--accent-orange);
             color: var(--white);
-            transform: translate(-2px, -2px);
-            box-shadow: 4px 4px 0px var(--dark-green);
         }
 
-        /* 多頁籤控制 */
-        .page-section { display: none; }
+        /* 頁面內容區塊 */
+        .page-section { display: none; width: 100%; }
         .page-section.active { display: block; }
 
         .section-container {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 0 16px;
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 12px;
             text-align: center;
         }
 
@@ -121,17 +157,20 @@
         .badge {
             font-family: 'Fredoka', 'Noto Sans TC', sans-serif;
             display: inline-block;
-            padding: 6px 30px;
+            padding: 4px 20px;
             border-radius: 50px;
             color: var(--white);
             font-weight: 700;
-            font-size: 16px;
-            letter-spacing: 0.5px;
+            font-size: 13px;
             border: var(--border-style);
             box-shadow: 2px 2px 0px var(--dark-green);
-            margin-bottom: -16px;
+            margin-bottom: -12px;
             position: relative;
             z-index: 10;
+        }
+
+        @media (min-width: 768px) {
+            .badge { font-size: 15px; padding: 6px 26px; }
         }
 
         .badge-pink { background-color: var(--accent-pink); }
@@ -142,31 +181,32 @@
         .card {
             background: var(--white);
             border: var(--border-style);
-            border-radius: 20px;
-            padding: 30px 20px 20px 20px;
+            border-radius: 18px;
+            padding: 22px 14px 16px 14px;
             box-shadow: var(--sticker-shadow);
-            font-size: 15px;
+            font-size: 13.5px;
             font-weight: 500;
+            word-break: break-word;
+        }
+
+        @media (min-width: 768px) {
+            .card { padding: 28px 20px 20px 20px; font-size: 15px; }
         }
 
         /* 外層彩色框框卡片 */
         .outer-card-green {
             background-color: var(--light-green-bg);
-            background-image: radial-gradient(var(--main-green) 1.2px, transparent 1.2px);
-            background-size: 18px 18px;
             border: var(--border-style);
-            border-radius: 28px;
-            padding: 25px 16px;
+            border-radius: 22px;
+            padding: 18px 10px;
             box-shadow: var(--sticker-shadow);
         }
 
         .outer-card-orange {
             background-color: var(--light-orange-bg);
-            background-image: radial-gradient(var(--accent-orange) 1.2px, transparent 1.2px);
-            background-size: 18px 18px;
             border: var(--border-style);
-            border-radius: 28px;
-            padding: 25px 16px;
+            border-radius: 22px;
+            padding: 18px 10px;
             box-shadow: var(--sticker-shadow);
         }
 
@@ -177,166 +217,123 @@
         .carousel-outer {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
+            justify-content: space-between;
+            gap: 6px;
+            width: 100%;
         }
 
         .arrow-btn {
             background: var(--main-green);
             color: var(--white);
             border: var(--border-style);
-            width: 38px;
-            height: 38px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
-            font-size: 18px;
+            font-size: 13px;
             font-weight: bold;
             cursor: pointer;
-            box-shadow: 2px 2px 0px var(--dark-green);
-            transition: all 0.15s;
             flex-shrink: 0;
-        }
-
-        .arrow-btn:hover {
-            background: var(--accent-orange);
-            transform: scale(1.08);
+            box-shadow: 2px 2px 0px var(--dark-green);
         }
 
         .inner-carousel-card {
             flex: 1;
             background: var(--white);
             border: var(--border-style);
-            border-radius: 22px;
-            padding: 20px 15px;
+            border-radius: 16px;
+            padding: 14px 8px;
             box-shadow: 2px 2px 0px var(--dark-green);
             text-align: center;
+            min-width: 0;
         }
 
         .inner-carousel-card h2 {
             font-family: 'Fredoka', sans-serif;
-            font-size: 18px;
+            font-size: 15px;
             color: var(--main-green);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
+            word-break: break-word;
         }
 
-        /* 成員名字膠囊小標籤 */
         .member-pills {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 6px;
-            margin: 12px 0;
+            gap: 4px;
+            margin: 8px 0;
         }
 
         .member-pill {
             background: var(--white);
-            border: 1.5px solid var(--dark-green);
-            border-radius: 20px;
-            padding: 2px 10px;
-            font-size: 12px;
+            border: 1px solid var(--dark-green);
+            border-radius: 12px;
+            padding: 1px 7px;
+            font-size: 11px;
             font-weight: 700;
         }
 
         /* HOW TO USE 網格卡片 */
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        @media (min-width: 600px) {
+            .grid-3 { grid-template-columns: repeat(3, 1fr); }
         }
 
         .dashed-card {
             background: var(--white);
             border: 2px dashed var(--accent-orange);
-            border-radius: 20px;
-            padding: 20px 12px;
+            border-radius: 16px;
+            padding: 14px 10px;
             text-align: center;
         }
 
-        .icon-box { font-size: 26px; margin-bottom: 8px; }
-        .dashed-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
-        .dashed-card p { font-size: 12px; color: #555; line-height: 1.5; font-weight: 500; }
+        .icon-box { font-size: 22px; margin-bottom: 6px; }
+        .dashed-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+        .dashed-card p { font-size: 12px; color: #555; line-height: 1.4; font-weight: 500; }
 
         /* 影音頁 Filter Bar & Video Grid */
-        .filter-bar { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
-        #searchInput { flex: 2; padding: 10px 16px; border: var(--border-style); border-radius: 50px; font-size: 14px; outline: none; font-family: inherit; font-weight: 500; min-width: 180px; }
-        #sortSelect { flex: 1; padding: 10px 16px; border: var(--border-style); border-radius: 50px; font-size: 14px; background: var(--bg-color); font-weight: 700; cursor: pointer; font-family: inherit; min-width: 120px; }
+        .filter-bar { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+        #searchInput, #sortSelect { width: 100%; padding: 8px 14px; border: var(--border-style); border-radius: 50px; font-size: 13px; font-weight: 700; outline: none; }
 
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
-        .video-card { background: var(--white); border: var(--border-style); border-radius: 18px; overflow: hidden; box-shadow: var(--sticker-shadow); text-align: left; display: flex; flex-direction: column; }
-        .video-thumb { width: 100%; height: 140px; background-size: cover; background-position: center; border-bottom: var(--border-style); position: relative; }
-        .video-play-badge { font-family: 'Fredoka', sans-serif; position: absolute; bottom: 8px; right: 8px; background: var(--accent-pink); color: var(--white); padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; border: 1px solid var(--dark-green); }
-        .video-content { padding: 12px; display: flex; flex-direction: column; justify-content: space-between; flex: 1; }
-        .video-title { font-size: 13px; font-weight: 700; color: var(--dark-green); text-decoration: none; margin-bottom: 6px; display: block; }
-        .video-date { font-size: 11px; color: #666; margin-bottom: 8px; font-weight: 500; }
+        @media (min-width: 600px) {
+            .filter-bar { flex-direction: row; }
+            #searchInput { flex: 2; }
+            #sortSelect { flex: 1; }
+        }
+
+        .video-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+        @media (min-width: 500px) {
+            .video-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+        }
+
+        .video-card { background: var(--white); border: var(--border-style); border-radius: 16px; overflow: hidden; box-shadow: var(--sticker-shadow); text-align: left; }
+        .video-thumb { width: 100%; height: 130px; background-size: cover; background-position: center; border-bottom: var(--border-style); position: relative; }
+        .video-play-badge { font-family: 'Fredoka', sans-serif; position: absolute; bottom: 6px; right: 6px; background: var(--accent-pink); color: var(--white); padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; border: 1px solid var(--dark-green); }
+        .video-content { padding: 10px; }
+        .video-title { font-size: 12px; font-weight: 700; color: var(--dark-green); text-decoration: none; margin-bottom: 4px; display: block; }
+        .video-date { font-size: 10px; color: #666; margin-bottom: 6px; }
         .video-tags { display: flex; flex-wrap: wrap; gap: 4px; }
-        .tag-btn { font-family: inherit; background: var(--bg-color); border: 1px solid var(--dark-green); border-radius: 12px; padding: 2px 8px; font-size: 10px; font-weight: 700; cursor: pointer; }
+        .tag-btn { background: var(--bg-color); border: 1px solid var(--dark-green); border-radius: 10px; padding: 1px 6px; font-size: 10px; font-weight: 700; cursor: pointer; }
 
         /* Footer */
         footer {
             background-color: var(--dark-green);
             color: var(--white);
-            padding: 20px 16px;
+            padding: 16px 12px;
             text-align: center;
-            font-size: 11px;
-            margin-top: 40px;
+            font-size: 10px;
+            margin-top: 30px;
             border-top: var(--border-style);
         }
 
-        /* Modal */
+        /* Modal 彈窗 */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; z-index: 1000; padding: 16px; }
-        .modal-box { background: var(--white); border: var(--border-style); border-radius: 20px; padding: 24px; width: 100%; max-width: 300px; text-align: center; box-shadow: var(--sticker-shadow); }
-        .close-btn { font-family: inherit; margin-top: 15px; background: var(--accent-pink); color: var(--white); border: var(--border-style); padding: 6px 20px; border-radius: 20px; font-weight: 700; cursor: pointer; }
-
-        /* 📱 手機版 RWD 響應式佈局 */
-        @media (max-width: 640px) {
-            .navbar {
-                flex-direction: column;
-                gap: 10px;
-                padding: 10px 12px;
-            }
-
-            .logo-text { font-size: 22px; }
-            .logo-pair img { height: 26px; }
-
-            .nav-links {
-                width: 100%;
-                justify-content: center;
-                gap: 6px;
-            }
-
-            .nav-btn {
-                padding: 4px 12px;
-                font-size: 12px;
-            }
-
-            .section-container {
-                margin: 20px auto;
-                padding: 0 12px;
-            }
-
-            .badge {
-                font-size: 14px;
-                padding: 4px 24px;
-                margin-bottom: -14px;
-            }
-
-            .card { padding: 24px 14px 16px 14px; font-size: 14px; }
-            
-            .grid-3 {
-                grid-template-columns: 1fr;
-            }
-
-            .filter-bar {
-                flex-direction: column;
-            }
-
-            #searchInput, #sortSelect {
-                width: 100%;
-            }
-
-            .video-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        .modal-box { background: var(--white); border: var(--border-style); border-radius: 18px; padding: 20px; width: 100%; max-width: 280px; text-align: center; box-shadow: var(--sticker-shadow); }
+        .close-btn { margin-top: 12px; background: var(--accent-pink); color: var(--white); border: var(--border-style); padding: 4px 16px; border-radius: 20px; font-weight: 700; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -382,7 +379,7 @@
                     
                     <div class="inner-carousel-card" id="carousel-content">
                         <h2>COLOR OUTSIDE THE LINES</h2>
-                        <p style="font-size: 13px; color: #444;"><span class="highlight-bold">BIGHIT MUSIC</span> 旗下男子團體</p>
+                        <p style="font-size: 12px; color: #444;"><span class="highlight-bold">BIGHIT MUSIC</span> 旗下男子團體</p>
                         
                         <div class="member-pills">
                             <span class="member-pill">MARTIN</span>
@@ -392,7 +389,7 @@
                             <span class="member-pill">KEONHO</span>
                         </div>
                         
-                        <p style="font-size: 12px; color: #666;">出道日期：2025 年 8 月 18 日</p>
+                        <p style="font-size: 11px; color: #666;">出道日期：2025 年 8 月 18 日</p>
                     </div>
 
                     <button class="arrow-btn" onclick="nextSlide()">＞</button>
@@ -425,12 +422,12 @@
         </section>
     </main>
 
-    <!-- 【介紹頁】區塊 (獨立頁面預留處) -->
+    <!-- 【介紹頁】區塊 -->
     <main id="page-about" class="page-section">
         <section class="section-container">
             <div class="badge badge-pink">INTRODUCTION</div>
-            <div class="card" style="min-height: 300px; display: flex; align-items: center; justify-content: center;">
-                <!-- 預留空白，後續可自由新增介紹內容 -->
+            <div class="card" style="min-height: 250px; display: flex; align-items: center; justify-content: center;">
+                <p style="color: #888;">介紹頁面內容建置中...</p>
             </div>
         </section>
     </main>
@@ -455,14 +452,14 @@
     <!-- Footer -->
     <footer>
         <p><strong>Fan Site for CORTIS • COER STATION</strong></p>
-        <p style="margin-top: 4px; opacity: 0.8; font-size: 11px;">COER STATION is an unofficial fan website dedicated to CORTIS. All dynamic content, official images, and video copyrights belong to their respective owners. No copyright infringement intended.</p>
+        <p style="margin-top: 4px; opacity: 0.8;">COER STATION is an unofficial fan website dedicated to CORTIS. All dynamic content, official images, and video copyrights belong to their respective owners. No copyright infringement intended.</p>
     </footer>
 
     <!-- Modal 彈窗 -->
     <div class="modal-overlay" id="eventModal">
         <div class="modal-box">
             <h3 style="color: var(--main-green);" id="modalTitle">🎉 提醒</h3>
-            <p style="font-size: 14px; margin-top: 10px; color: #444;" id="modalText">區塊準備中！</p>
+            <p style="font-size: 13px; margin-top: 10px; color: #444;" id="modalText">區塊準備中！</p>
             <button class="close-btn" onclick="closeModal()">關閉</button>
         </div>
     </div>
@@ -510,11 +507,11 @@
             const data = slides[currentSlide];
             document.getElementById('carousel-content').innerHTML = `
                 <h2>${data.title}</h2>
-                <p style="font-size: 13px; color: #444;">${data.agency}</p>
+                <p style="font-size: 12px; color: #444;">${data.agency}</p>
                 <div class="member-pills">
                     ${data.members.map(m => `<span class="member-pill">${m}</span>`).join('')}
                 </div>
-                <p style="font-size: 12px; color: #666;">${data.date}</p>
+                <p style="font-size: 11px; color: #666;">${data.date}</p>
             `;
         }
         function nextSlide() { currentSlide = (currentSlide + 1) % slides.length; updateSlide(); }
@@ -539,7 +536,7 @@
             
             const grid = document.getElementById('videoGrid');
             if(filtered.length === 0) {
-                grid.innerHTML = `<p style="grid-column: 1/-1; padding: 30px; color: #888;">查無相關影片喔！</p>`;
+                grid.innerHTML = `<p style="grid-column: 1/-1; padding: 20px; color: #888; font-size: 13px;">查無相關影片喔！</p>`;
                 return;
             }
             grid.innerHTML = filtered.map(v => `
