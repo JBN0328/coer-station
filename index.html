@@ -13,19 +13,17 @@
         :root {
             --bg-color: #FDFFE2;
             --main-green: #62C49A;
-            --light-green-bg: #D4F0DF;
-            --light-orange-bg: #FFEBD6;
+            --light-green-shadow: #A3DEBF;
+            --light-orange-shadow: #FFD09B;
             --dark-green: #1A312C;
             --accent-pink: #FFA3B5;
             --accent-orange: #FFA834;
             --white: #FFFFFF;
             --border-style: 2px solid var(--dark-green);
-            --sticker-shadow: 3px 3px 0px var(--dark-green);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
-        /* 徹底修正跑版：利用 min-height 配合 margin-top: auto 實現穩定頁尾 */
         html {
             height: 100%;
         }
@@ -35,11 +33,9 @@
             display: flex;
             flex-direction: column;
             background-color: var(--bg-color);
-            background-image: radial-gradient(var(--main-green) 1px, transparent 1px);
-            background-size: 20px 20px;
             font-family: 'Fredoka', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
             color: var(--dark-green);
-            line-height: 1.5;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden !important; 
             width: 100%;
@@ -74,7 +70,6 @@
             justify-content: center;
             gap: 4px;
             cursor: pointer;
-            max-width: 100%;
         }
 
         .logo-pair {
@@ -115,11 +110,6 @@
             list-style: none; 
             flex-wrap: wrap; 
             justify-content: center;
-            width: 100%;
-        }
-
-        @media (min-width: 768px) {
-            .nav-links { width: auto; }
         }
 
         .nav-btn {
@@ -141,146 +131,176 @@
             color: var(--white);
         }
 
-        /* 頁面主要區域包裝盒（吸收剩餘高度） */
+        /* 內容包裝層 */
         .content-wrapper {
             flex: 1 0 auto;
             width: 100%;
+            padding-bottom: 30px;
         }
 
         .page-section { display: none; width: 100%; }
         .page-section.active { display: block; }
 
+        /* 統一三個區塊的容器尺寸 */
         .section-container {
             width: 100%;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 12px;
+            max-width: 720px;
+            margin: 32px auto;
+            padding: 0 16px;
             text-align: center;
+            position: relative;
         }
 
-        /* 膠囊標籤 Badge */
+        /* 統一膠囊標籤 Badge */
         .badge {
             font-family: 'Fredoka', 'Noto Sans TC', sans-serif;
             display: inline-block;
-            padding: 4px 20px;
+            padding: 6px 30px;
             border-radius: 50px;
             color: var(--white);
             font-weight: 700;
-            font-size: 13px;
-            border: var(--border-style);
-            box-shadow: 2px 2px 0px var(--dark-green);
-            margin-bottom: -12px;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            margin-bottom: -16px;
             position: relative;
             z-index: 10;
         }
 
-        @media (min-width: 768px) {
-            .badge { font-size: 15px; padding: 6px 26px; }
-        }
+        .badge-pink { background-color: #FF8BA7; }
+        .badge-green { background-color: #5DBB93; }
+        .badge-orange { background-color: #FFA834; }
 
-        .badge-pink { background-color: var(--accent-pink); }
-        .badge-green { background-color: var(--main-green); }
-        .badge-orange { background-color: var(--accent-orange); }
-
-        /* 卡片樣式 */
+        /* 統一三個卡片的外觀與大小 */
         .card {
             background: var(--white);
             border: var(--border-style);
-            border-radius: 18px;
-            padding: 22px 14px 16px 14px;
-            box-shadow: var(--sticker-shadow);
-            font-size: 13.5px;
+            border-radius: 20px;
+            padding: 28px 24px 22px 24px;
+            font-size: 14.5px;
             font-weight: 500;
             word-break: break-word;
-        }
-
-        @media (min-width: 768px) {
-            .card { padding: 28px 20px 20px 20px; font-size: 15px; }
-        }
-
-        .outer-card-green {
-            background-color: var(--light-green-bg);
-            border: var(--border-style);
-            border-radius: 22px;
-            padding: 18px 10px;
-            box-shadow: var(--sticker-shadow);
-        }
-
-        .outer-card-orange {
-            background-color: var(--light-orange-bg);
-            border: var(--border-style);
-            border-radius: 22px;
-            padding: 18px 10px;
-            box-shadow: var(--sticker-shadow);
-        }
-
-        .highlight-pink { color: var(--accent-pink); font-weight: 700; }
-        .highlight-bold { font-weight: 900; }
-
-        /* 輪播區塊 */
-        .carousel-outer {
+            width: 100%;
+            min-height: 140px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 6px;
+            justify-content: center;
+        }
+
+        /* 陰影色階（仿圖片右側/下方的雙層質感） */
+        .card-shadow-pink {
+            box-shadow: 4px 4px 0px #FFD1DC;
+        }
+        .card-shadow-green {
+            box-shadow: 4px 4px 0px #A8E6CF;
+        }
+        .card-shadow-orange {
+            box-shadow: 4px 4px 0px #FFE1AF;
+        }
+
+        .highlight-bold { font-weight: 900; }
+
+        /* 第二段輪播結構（包含左右懸浮球與按鈕） */
+        .carousel-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
             width: 100%;
+            position: relative;
+        }
+
+        /* 側邊按鈕與可愛球球組 */
+        .side-control {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            flex-shrink: 0;
         }
 
         .arrow-btn {
-            background: var(--main-green);
+            background: #84DCC6;
             color: var(--white);
             border: var(--border-style);
-            width: 30px;
-            height: 30px;
+            width: 46px;
+            height: 46px;
             border-radius: 50%;
-            font-size: 13px;
-            font-weight: bold;
+            font-size: 20px;
+            font-weight: 900;
             cursor: pointer;
-            flex-shrink: 0;
-            box-shadow: 2px 2px 0px var(--dark-green);
-        }
-
-        .inner-carousel-card {
-            flex: 1;
-            background: var(--white);
-            border: var(--border-style);
-            border-radius: 16px;
-            padding: 14px 8px;
-            box-shadow: 2px 2px 0px var(--dark-green);
-            text-align: center;
-            min-width: 0;
-        }
-
-        .inner-carousel-card h2 {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 15px;
-            color: var(--main-green);
-            margin-bottom: 4px;
-            word-break: break-word;
-        }
-
-        .member-pills {
             display: flex;
+            align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 4px;
-            margin: 8px 0;
+            box-shadow: 2px 2px 0px var(--dark-green);
+            transition: transform 0.1s ease;
         }
 
-        .member-pill {
-            background: var(--white);
-            border: 1px solid var(--dark-green);
-            border-radius: 12px;
-            padding: 1px 7px;
-            font-size: 11px;
+        .arrow-btn:active {
+            transform: scale(0.95);
+        }
+
+        .yoi-pair-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: -6px;
+            margin-top: 2px;
+        }
+
+        .yoi-pair-group img {
+            width: 32px;
+            height: auto;
+        }
+
+        @media (min-width: 768px) {
+            .yoi-pair-group img {
+                width: 42px;
+            }
+            .arrow-btn {
+                width: 52px;
+                height: 52px;
+                font-size: 24px;
+            }
+        }
+
+        /* 卡片內部文字排列 */
+        .cortis-card-content {
+            width: 100%;
+            text-align: center;
+        }
+
+        .cortis-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 16px;
             font-weight: 700;
+            color: var(--dark-green);
+            margin-bottom: 10px;
         }
 
-        /* HOW TO USE 網格卡片 */
+        .cortis-desc {
+            font-size: 13.5px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .cortis-members {
+            font-size: 13.5px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .cortis-date {
+            font-size: 13px;
+        }
+
+        /* 第三區塊 Howard/How To Use 內容樣式 */
         .grid-3 {
             display: grid;
             grid-template-columns: 1fr;
             gap: 12px;
+            width: 100%;
         }
 
         @media (min-width: 600px) {
@@ -290,17 +310,17 @@
         .dashed-card {
             background: var(--white);
             border: 2px dashed var(--accent-orange);
-            border-radius: 16px;
-            padding: 14px 10px;
+            border-radius: 14px;
+            padding: 12px 8px;
             text-align: center;
         }
 
-        .icon-box { font-size: 22px; margin-bottom: 6px; }
-        .dashed-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-        .dashed-card p { font-size: 12px; color: #555; line-height: 1.4; font-weight: 500; }
+        .icon-box { font-size: 20px; margin-bottom: 4px; }
+        .dashed-card h3 { font-size: 13.5px; font-weight: 700; margin-bottom: 2px; }
+        .dashed-card p { font-size: 11.5px; color: #555; line-height: 1.4; font-weight: 500; }
 
         /* 影音頁 Filter Bar & Video Grid */
-        .filter-bar { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+        .filter-bar { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; width: 100%; }
         #searchInput, #sortSelect { width: 100%; padding: 8px 14px; border: var(--border-style); border-radius: 50px; font-size: 13px; font-weight: 700; outline: none; }
 
         @media (min-width: 600px) {
@@ -309,13 +329,13 @@
             #sortSelect { flex: 1; }
         }
 
-        .video-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+        .video-grid { display: grid; grid-template-columns: 1fr; gap: 14px; width: 100%; }
         @media (min-width: 500px) {
-            .video-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+            .video-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
         }
 
-        .video-card { background: var(--white); border: var(--border-style); border-radius: 16px; overflow: hidden; box-shadow: var(--sticker-shadow); text-align: left; }
-        .video-thumb { width: 100%; height: 130px; background-size: cover; background-position: center; border-bottom: var(--border-style); position: relative; }
+        .video-card { background: var(--white); border: var(--border-style); border-radius: 16px; overflow: hidden; box-shadow: 3px 3px 0px var(--dark-green); text-align: left; }
+        .video-thumb { width: 100%; height: 120px; background-size: cover; background-position: center; border-bottom: var(--border-style); position: relative; }
         .video-play-badge { font-family: 'Fredoka', sans-serif; position: absolute; bottom: 6px; right: 6px; background: var(--accent-pink); color: var(--white); padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; border: 1px solid var(--dark-green); }
         .video-content { padding: 10px; }
         .video-title { font-size: 12px; font-weight: 700; color: var(--dark-green); text-decoration: none; margin-bottom: 4px; display: block; }
@@ -323,14 +343,14 @@
         .video-tags { display: flex; flex-wrap: wrap; gap: 4px; }
         .tag-btn { background: var(--bg-color); border: 1px solid var(--dark-green); border-radius: 10px; padding: 1px 6px; font-size: 10px; font-weight: 700; cursor: pointer; }
 
-        /* Footer 永遠黏在畫面最底部，內容少時置底、內容多時隨頁面滾動 */
+        /* Footer Sticky 貼底 */
         footer {
             margin-top: auto;
             background-color: var(--dark-green);
             color: var(--white);
             padding: 16px 12px;
             text-align: center;
-            font-size: 10px;
+            font-size: 10.5px;
             border-top: var(--border-style);
             width: 100%;
             flex-shrink: 0;
@@ -338,7 +358,7 @@
 
         /* Modal 彈窗 */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; z-index: 1000; padding: 16px; }
-        .modal-box { background: var(--white); border: var(--border-style); border-radius: 18px; padding: 20px; width: 100%; max-width: 280px; text-align: center; box-shadow: var(--sticker-shadow); }
+        .modal-box { background: var(--white); border: var(--border-style); border-radius: 18px; padding: 20px; width: 100%; max-width: 280px; text-align: center; box-shadow: 3px 3px 0px var(--dark-green); }
         .close-btn { margin-top: 12px; background: var(--accent-pink); color: var(--white); border: var(--border-style); padding: 4px 16px; border-radius: 20px; font-weight: 700; cursor: pointer; }
     </style>
 </head>
@@ -370,42 +390,65 @@
     <div class="content-wrapper">
         <!-- 【首頁】區塊 -->
         <main id="page-home" class="page-section active">
+            
+            <!-- 第一段：ABOUT COER STATION -->
             <section id="about-site" class="section-container">
                 <div class="badge badge-pink">ABOUT COER STATION</div>
-                <div class="card">
-                    <p>歡迎來到<span class="highlight-bold">COER STATION！</span>（非官方網站）這裡提供<span class="highlight-bold">CORTIS</span>歷年來的<span class="highlight-pink">影音整理</span>，可以透過影音頁面的搜尋欄進行<span class="highlight-pink">關鍵字搜尋</span>影片，還可以透過投票頁面瞭解目前進行中的<span class="highlight-pink">投票</span>活動及投票的教學，還有關於<span class="highlight-bold">CORTIS</span>團體、人物的<span class="highlight-pink">介紹</span>以及<span class="highlight-pink">認人</span>小教室，歡迎各位<span class="highlight-bold">COER</span>使用本網站<span class="highlight-bold">!!!</span></p>
+                <div class="card card-shadow-pink">
+                    <p style="text-align: center;">
+                        歡迎來到<span class="highlight-bold">COER STATION！</span>（非官方網站）<br>
+                        這裡提供<span class="highlight-bold">CORTIS</span>的影音整理（可使用搜尋欄查詢）、投票活動整理、團體/成員介紹等功能<br>
+                        歡迎各位<span class="highlight-bold">COER</span>使用本網站<span class="highlight-bold">!!!</span>
+                    </p>
                 </div>
             </section>
 
+            <!-- 第二段：ABOUT CORTIS (兩側含控制按鈕與 4 顆球) -->
             <section id="about-cortis" class="section-container">
                 <div class="badge badge-green">ABOUT CORTIS</div>
-                <div class="outer-card-green">
-                    <div class="carousel-outer">
-                        <button class="arrow-btn" onclick="prevSlide()">＜</button>
-                        
-                        <div class="inner-carousel-card" id="carousel-content">
-                            <h2>COLOR OUTSIDE THE LINES</h2>
-                            <p style="font-size: 12px; color: #444;"><span class="highlight-bold">BIGHIT MUSIC</span> 旗下男子團體</p>
-                            
-                            <div class="member-pills">
-                                <span class="member-pill">MARTIN</span>
-                                <span class="member-pill">JAMES</span>
-                                <span class="member-pill">JUHOON</span>
-                                <span class="member-pill">SEONGHYEON</span>
-                                <span class="member-pill">KEONHO</span>
-                            </div>
-                            
-                            <p style="font-size: 11px; color: #666;">出道日期：2025 年 8 月 18 日</p>
+                
+                <div class="carousel-wrapper">
+                    <!-- 左側控制組：按鈕 + 左邊兩顆球 -->
+                    <div class="side-control">
+                        <button class="arrow-btn" onclick="prevSlide()">&lt;</button>
+                        <div class="yoi-pair-group">
+                            <img src="whiteyoi.png" alt="White Yoi" onerror="this.style.display='none'">
+                            <img src="yellowyoi.png" alt="Yellow Yoi" onerror="this.style.display='none'">
                         </div>
+                    </div>
 
-                        <button class="arrow-btn" onclick="nextSlide()">＞</button>
+                    <!-- 中央卡片框 -->
+                    <div class="card card-shadow-green" id="carousel-card">
+                        <div class="cortis-card-content" id="carousel-content">
+                            <div class="cortis-title">COLOR OUTSIDE THE LINES</div>
+                            <div class="cortis-desc">
+                                韓國<span class="highlight-bold">HYBE</span>旗下公司<span class="highlight-bold">BIGHIT MUSIC</span>推出的男子團體
+                            </div>
+                            <div class="cortis-members">
+                                成員包括<br>
+                                <span class="highlight-bold">MARTIN</span>、<span class="highlight-bold">JAMES</span>、<span class="highlight-bold">JUHOON</span>、<span class="highlight-bold">SEONGHYEON</span>、<span class="highlight-bold">KEONHO</span>
+                            </div>
+                            <div class="cortis-date">
+                                出道日期 <span class="highlight-bold">2025年8月18日</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 右側控制組：按鈕 + 右邊兩顆球 -->
+                    <div class="side-control">
+                        <button class="arrow-btn" onclick="nextSlide()">&gt;</button>
+                        <div class="yoi-pair-group">
+                            <img src="blueyoi.png" alt="Blue Yoi" onerror="this.style.display='none'">
+                            <img src="pinkyoi.png" alt="Pink Yoi" onerror="this.style.display='none'">
+                        </div>
                     </div>
                 </div>
             </section>
 
+            <!-- 第三段：HOW TO USE -->
             <section id="how-to-use" class="section-container">
                 <div class="badge badge-orange">HOW TO USE</div>
-                <div class="outer-card-orange">
+                <div class="card card-shadow-orange">
                     <div class="grid-3">
                         <div class="dashed-card">
                             <div class="icon-box">🎬</div>
@@ -425,13 +468,14 @@
                     </div>
                 </div>
             </section>
+
         </main>
 
         <!-- 【介紹頁】區塊 -->
         <main id="page-about" class="page-section">
             <section class="section-container">
                 <div class="badge badge-pink">INTRODUCTION</div>
-                <div class="card" style="min-height: 250px; display: flex; align-items: center; justify-content: center;">
+                <div class="card card-shadow-pink" style="min-height: 200px;">
                     <p style="color: #888;">介紹頁面內容建置中...</p>
                 </div>
             </section>
@@ -441,7 +485,7 @@
         <main id="page-media" class="page-section">
             <section class="section-container">
                 <div class="badge badge-green">MEDIA ARCHIVE</div>
-                <div class="card">
+                <div class="card card-shadow-green" style="flex-direction: column; justify-content: flex-start;">
                     <div class="filter-bar">
                         <input type="text" id="searchInput" placeholder="🔍 輸入關鍵字（如：MV、成員名字）...">
                         <select id="sortSelect">
@@ -455,7 +499,7 @@
         </main>
     </div>
 
-    <!-- 頁尾：確保永遠貼在視窗底部 -->
+    <!-- 頁尾 -->
     <footer>
         <p><strong>Fan Site for CORTIS • COER STATION</strong></p>
         <p style="margin-top: 4px; opacity: 0.8;">COER STATION is an unofficial fan website dedicated to CORTIS. All dynamic content, official images, and video copyrights belong to their respective owners. No copyright infringement intended.</p>
@@ -490,17 +534,18 @@
             document.getElementById('eventModal').style.display = 'none';
         }
 
+        // 輪播切換資料
         const slides = [
             {
                 title: "COLOR OUTSIDE THE LINES",
-                agency: "<span class='highlight-bold'>BIGHIT MUSIC</span> 旗下男子團體",
-                members: ["MARTIN", "JAMES", "JUHOON", "SEONGHYEON", "KEONHO"],
-                date: "出道日期：2025 年 8 月 18 日"
+                desc: "韓國<span class='highlight-bold'>HYBE</span>旗下公司<span class='highlight-bold'>BIGHIT MUSIC</span>推出的男子團體",
+                members: "成員包括<br><span class='highlight-bold'>MARTIN</span>、<span class='highlight-bold'>JAMES</span>、<span class='highlight-bold'>JUHOON</span>、<span class='highlight-bold'>SEONGHYEON</span>、<span class='highlight-bold'>KEONHO</span>",
+                date: "出道日期 <span class='highlight-bold'>2025年8月18日</span>"
             },
             {
                 title: "FANCLUB : COER",
-                agency: "與 CORTIS 一起繪製彩虹色彩的強大夥伴",
-                members: ["Love", "Support", "Forever"],
+                desc: "與 CORTIS 一起繪製彩虹色彩的強大夥伴",
+                members: "<span class='highlight-bold'>Love</span> • <span class='highlight-bold'>Support</span> • <span class='highlight-bold'>Forever</span>",
                 date: "COER STATION 常駐服務中"
             }
         ];
@@ -509,12 +554,10 @@
         function updateSlide() {
             const data = slides[currentSlide];
             document.getElementById('carousel-content').innerHTML = `
-                <h2>${data.title}</h2>
-                <p style="font-size: 12px; color: #444;">${data.agency}</p>
-                <div class="member-pills">
-                    ${data.members.map(m => `<span class="member-pill">${m}</span>`).join('')}
-                </div>
-                <p style="font-size: 11px; color: #666;">${data.date}</p>
+                <div class="cortis-title">${data.title}</div>
+                <div class="cortis-desc">${data.desc}</div>
+                <div class="cortis-members">${data.members}</div>
+                <div class="cortis-date">${data.date}</div>
             `;
         }
         function nextSlide() { currentSlide = (currentSlide + 1) % slides.length; updateSlide(); }
