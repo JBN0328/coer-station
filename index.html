@@ -189,7 +189,7 @@
             font-weight: 500;
             word-break: break-word;
             width: 100%;
-            min-height: 140px;
+            min-height: 180px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -201,31 +201,46 @@
 
         .highlight-bold { font-weight: 900; }
 
-        /* 第二段輪播結構 */
+        /* 第二段輪播結構（將按鈕改為相對容器定位，不占用卡片寬度） */
         .carousel-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
             width: 100%;
             position: relative;
+            display: flex;
+            justify-content: center;
         }
 
+        /* 懸浮在卡片左右側外圍的控制組 */
         .side-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 6px;
-            flex-shrink: 0;
+            z-index: 20;
+        }
+
+        .side-control.left {
+            left: -20px;
+        }
+
+        .side-control.right {
+            right: -20px;
+        }
+
+        @media (min-width: 820px) {
+            .side-control.left { left: -65px; }
+            .side-control.right { right: -65px; }
         }
 
         .arrow-btn {
             background: #84DCC6;
             color: var(--white);
             border: var(--border-style);
-            width: 46px;
-            height: 46px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             font-size: 20px;
             font-weight: 900;
@@ -248,13 +263,13 @@
         }
 
         .yoi-pair-group img {
-            width: 32px;
+            width: 30px;
             height: auto;
         }
 
         @media (min-width: 768px) {
-            .yoi-pair-group img { width: 42px; }
-            .arrow-btn { width: 52px; height: 52px; font-size: 24px; }
+            .yoi-pair-group img { width: 40px; }
+            .arrow-btn { width: 50px; height: 50px; font-size: 24px; }
             .badge { width: 260px; height: 42px; font-size: 16px; margin-bottom: -21px; }
         }
 
@@ -265,7 +280,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .cortis-title {
@@ -284,11 +299,13 @@
 
         .cortis-members-group {
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap; /* 絕對不換行 */
             justify-content: center;
-            gap: 6px;
+            align-items: center;
+            gap: 5px;
             margin: 4px 0;
             width: 100%;
+            overflow-x: auto; /* 預防極小螢幕爆開 */
         }
 
         .member-pill {
@@ -296,11 +313,23 @@
             background-color: var(--member-bg);
             border: var(--border-style);
             border-radius: 20px;
-            padding: 3px 14px;
-            font-size: 13.5px;
+            padding: 3px 10px; /* 微調內距，確保寬度完美塞入 */
+            font-size: 13px;
             font-weight: 700;
             color: var(--dark-green);
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
+            white-space: nowrap; /* 強制文字單行 */
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 500px) {
+            .member-pill {
+                padding: 4px 14px;
+                font-size: 13.5px;
+            }
+            .cortis-members-group {
+                gap: 8px;
+            }
         }
 
         .cortis-date {
@@ -422,8 +451,8 @@
                 <div class="badge badge-green">ABOUT CORTIS</div>
                 
                 <div class="carousel-wrapper">
-                    <!-- 左側控制組 -->
-                    <div class="side-control">
+                    <!-- 左側懸浮控制組 -->
+                    <div class="side-control left">
                         <button class="arrow-btn" onclick="prevSlide()">&lt;</button>
                         <div class="yoi-pair-group">
                             <img src="whiteyoi.png" alt="White Yoi" onerror="this.style.display='none'">
@@ -431,7 +460,7 @@
                         </div>
                     </div>
 
-                    <!-- 中央卡片框 -->
+                    <!-- 中央卡片框（長寬與上一區塊完全一致） -->
                     <div class="card card-shadow-green" id="carousel-card">
                         <div class="cortis-card-content" id="carousel-content">
                             <div class="cortis-title">COLOR OUTSIDE THE LINES</div>
@@ -447,8 +476,8 @@
                         </div>
                     </div>
 
-                    <!-- 右側控制組 -->
-                    <div class="side-control">
+                    <!-- 右側懸浮控制組 -->
+                    <div class="side-control right">
                         <button class="arrow-btn" onclick="nextSlide()">&gt;</button>
                         <div class="yoi-pair-group">
                             <img src="blueyoi.png" alt="Blue Yoi" onerror="this.style.display='none'">
