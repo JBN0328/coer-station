@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COER STATION • CORTIS Unofficial Fan Site</title>
+    
+    <!-- 載入圓潤英文字型 Fredoka 與萬用繁中字型 Noto Sans TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #FDFFE2;
+            --main-green: #62C49A;
+            --light-green-bg: #D4F0DF;
+            --light-orange-bg: #FFEBD6;
+            --dark-green: #1A312C;
+            --accent-pink: #FFA3B5;
+            --accent-orange: #FFA834;
+            --white: #FFFFFF;
+            --border-style: 2px solid var(--dark-green);
+            --sticker-shadow: 4px 4px 0px var(--dark-green);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        /* 滿版點陣網格背景 */
+        body {
+            background-color: var(--bg-color);
+            background-image: radial-gradient(var(--main-green) 1px, transparent 1px);
+            background-size: 24px 24px;
+            font-family: 'Fredoka', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+            color: var(--dark-green);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 頂部導覽列 */
+        .navbar {
+            background-color: var(--main-green);
+            padding: 14px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: var(--border-style);
+        }
+
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .logo-pair {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-pair img {
+            height: 32px;
+            width: auto;
+            margin-left: -8px;
+        }
+
+        .logo-pair img:first-child { margin-left: 0; }
+
+        .logo-text {
+            font-family: 'Fredoka', sans-serif;
+            color: var(--white);
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 0px var(--dark-green);
+            margin: 0 6px;
+        }
+
+        .nav-links { display: flex; gap: 10px; list-style: none; }
+
+        .nav-btn {
+            font-family: 'Fredoka', 'Noto Sans TC', sans-serif;
+            background: var(--white);
+            color: var(--dark-green);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            border: var(--border-style);
+            box-shadow: 2px 2px 0px var(--dark-green);
+            transition: all 0.15s ease;
+            cursor: pointer;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background-color: var(--accent-orange);
+            color: var(--white);
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px var(--dark-green);
+        }
+
+        /* 多頁籤控制 */
+        .page-section { display: none; }
+        .page-section.active { display: block; }
+
+        .section-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        /* 膠囊標籤 Badge */
+        .badge {
+            font-family: 'Fredoka', 'Noto Sans TC', sans-serif;
+            display: inline-block;
+            padding: 6px 36px;
+            border-radius: 50px;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+            border: var(--border-style);
+            box-shadow: 2px 2px 0px var(--dark-green);
+            margin-bottom: -18px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .badge-pink { background-color: var(--accent-pink); }
+        .badge-green { background-color: var(--main-green); }
+        .badge-orange { background-color: var(--accent-orange); }
+
+        /* 白色基礎卡片 */
+        .card {
+            background: var(--white);
+            border: var(--border-style);
+            border-radius: 20px;
+            padding: 35px 25px 25px 25px;
+            box-shadow: var(--sticker-shadow);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        /* 外層彩色框框卡片 (圖二樣式) */
+        .outer-card-green {
+            background-color: var(--light-green-bg);
+            background-image: radial-gradient(var(--main-green) 1.2px, transparent 1.2px);
+            background-size: 18px 18px;
+            border: var(--border-style);
+            border-radius: 28px;
+            padding: 30px 25px;
+            box-shadow: var(--sticker-shadow);
+        }
+
+        .outer-card-orange {
+            background-color: var(--light-orange-bg);
+            background-image: radial-gradient(var(--accent-orange) 1.2px, transparent 1.2px);
+            background-size: 18px 18px;
+            border: var(--border-style);
+            border-radius: 28px;
+            padding: 30px 20px;
+            box-shadow: var(--sticker-shadow);
+        }
+
+        .highlight-pink { color: var(--accent-pink); font-weight: 700; }
+        .highlight-bold { font-weight: 900; }
+
+        /* ABOUT CORTIS 輪播與裝飾圖組合 */
+        .carousel-outer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .arrow-btn {
+            background: var(--main-green);
+            color: var(--white);
+            border: var(--border-style);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 2px 2px 0px var(--dark-green);
+            transition: all 0.15s;
+            flex-shrink: 0;
+        }
+
+        .arrow-btn:hover {
+            background: var(--accent-orange);
+            transform: scale(1.08);
+        }
+
+        .inner-carousel-card {
+            flex: 1;
+            background: var(--white);
+            border: var(--border-style);
+            border-radius: 22px;
+            padding: 25px 20px;
+            box-shadow: 2px 2px 0px var(--dark-green);
+            text-align: center;
+        }
+
+        .inner-carousel-card h2 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 20px;
+            color: var(--main-green);
+            margin-bottom: 6px;
+        }
+
+        /* 成員名字膠囊小標籤 */
+        .member-pills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 14px 0;
+        }
+
+        .member-pill {
+            background: var(--white);
+            border: 1.5px solid var(--dark-green);
+            border-radius: 20px;
+            padding: 3px 14px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* HOW TO USE 網格卡片 */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 16px;
+        }
+
+        .dashed-card {
+            background: var(--white);
+            border: 2px dashed var(--accent-orange);
+            border-radius: 20px;
+            padding: 25px 15px;
+            text-align: center;
+        }
+
+        .icon-box {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .dashed-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+        .dashed-card p { font-size: 13px; color: #555; line-height: 1.5; font-weight: 500; }
+
+        /* 影音頁 Filter Bar & Video Grid */
+        .filter-bar { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        #searchInput { flex: 2; padding: 10px 18px; border: var(--border-style); border-radius: 50px; font-size: 14px; outline: none; font-family: inherit; font-weight: 500; }
+        #sortSelect { flex: 1; padding: 10px 18px; border: var(--border-style); border-radius: 50px; font-size: 14px; background: var(--bg-color); font-weight: 700; cursor: pointer; font-family: inherit; }
+
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+        .video-card { background: var(--white); border: var(--border-style); border-radius: 18px; overflow: hidden; box-shadow: var(--sticker-shadow); text-align: left; display: flex; flex-direction: column; }
+        .video-thumb { width: 100%; height: 140px; background-size: cover; background-position: center; border-bottom: var(--border-style); position: relative; }
+        .video-play-badge { font-family: 'Fredoka', sans-serif; position: absolute; bottom: 8px; right: 8px; background: var(--accent-pink); color: var(--white); padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 700; border: 1px solid var(--dark-green); }
+        .video-content { padding: 14px; display: flex; flex-direction: column; justify-content: space-between; flex: 1; }
+        .video-title { font-size: 14px; font-weight: 700; color: var(--dark-green); text-decoration: none; margin-bottom: 6px; display: block; }
+        .video-date { font-size: 12px; color: #666; margin-bottom: 8px; font-weight: 500; }
+        .video-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+        .tag-btn { font-family: inherit; background: var(--bg-color); border: 1px solid var(--dark-green); border-radius: 12px; padding: 2px 8px; font-size: 11px; font-weight: 700; cursor: pointer; }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-green);
+            color: var(--white);
+            padding: 25px 20px;
+            text-align: center;
+            font-size: 12px;
+            margin-top: 60px;
+            border-top: var(--border-style);
+        }
+
+        /* Modal */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; z-index: 1000; }
+        .modal-box { background: var(--white); border: var(--border-style); border-radius: 20px; padding: 30px; max-width: 320px; text-align: center; box-shadow: var(--sticker-shadow); }
+        .close-btn { font-family: inherit; margin-top: 15px; background: var(--accent-pink); color: var(--white); border: var(--border-style); padding: 6px 20px; border-radius: 20px; font-weight: 700; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <!-- 頂部導覽列 -->
+    <nav class="navbar">
+        <div class="logo-group" onclick="switchPage('home')">
+            <div class="logo-pair">
+                <img src="whiteyoi.png" alt="White Yoi" onerror="this.style.display='none'">
+                <img src="yellowyoi.png" alt="Yellow Yoi" onerror="this.style.display='none'">
+            </div>
+            <span class="logo-text">COER STATION</span>
+            <div class="logo-pair">
+                <img src="blueyoi.png" alt="Blue Yoi" onerror="this.style.display='none'">
+                <img src="pinkyoi.png" alt="Pink Yoi" onerror="this.style.display='none'">
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><button class="nav-btn active" id="btn-home" onclick="switchPage('home')">首頁</button></li>
+            <li><button class="nav-btn" id="btn-about" onclick="switchPage('about')">介紹</button></li>
+            <li><button class="nav-btn" id="btn-media" onclick="switchPage('media')">影音</button></li>
+            <li><button class="nav-btn" onclick="openModal('投票頁面準備中！')">投票</button></li>
+            <li><button class="nav-btn" onclick="openModal('建置中！敬請期待！')">建置中</button></li>
+        </ul>
+    </nav>
+
+    <!-- 【首頁】區塊 -->
+    <main id="page-home" class="page-section active">
+        <!-- ABOUT COER STATION -->
+        <section id="about-site" class="section-container">
+            <div class="badge badge-pink">ABOUT COER STATION</div>
+            <div class="card">
+                <p>歡迎來到<span class="highlight-bold">COER STATION！</span>（非官方網站）這裡提供<span class="highlight-bold">CORTIS</span>歷年來的<span class="highlight-pink">影音整理</span>，可以透過影音頁面的搜尋欄進行<span class="highlight-pink">關鍵字搜尋</span>影片，還可以透過投票頁面瞭解目前進行中的<span class="highlight-pink">投票</span>活動及投票的教學，還有關於<span class="highlight-bold">CORTIS</span>團體、人物的<span class="highlight-pink">介紹</span>以及<span class="highlight-pink">認人</span>小教室，歡迎各位<span class="highlight-bold">COER</span>使用本網站<span class="highlight-bold">!!!</span></p>
+            </div>
+        </section>
+
+        <!-- ABOUT CORTIS (圖二樣式) -->
+        <section id="about-cortis" class="section-container">
+            <div class="badge badge-green">ABOUT CORTIS</div>
+            <div class="outer-card-green">
+                <div class="carousel-outer">
+                    <button class="arrow-btn" onclick="prevSlide()">＜</button>
+                    
+                    <div class="inner-carousel-card" id="carousel-content">
+                        <h2>COLOR OUTSIDE THE LINES</h2>
+                        <p style="font-size: 13px; color: #444;"><span class="highlight-bold">BIGHIT MUSIC</span> 旗下男子團體</p>
+                        
+                        <div class="member-pills">
+                            <span class="member-pill">MARTIN</span>
+                            <span class="member-pill">JAMES</span>
+                            <span class="member-pill">JUHOON</span>
+                            <span class="member-pill">SEONGHYEON</span>
+                            <span class="member-pill">KEONHO</span>
+                        </div>
+                        
+                        <p style="font-size: 12px; color: #666;">出道日期：2025 年 8 月 18 日</p>
+                    </div>
+
+                    <button class="arrow-btn" onclick="nextSlide()">＞</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW TO USE (圖二樣式) -->
+        <section id="how-to-use" class="section-container">
+            <div class="badge badge-orange">HOW TO USE</div>
+            <div class="outer-card-orange">
+                <div class="grid-3">
+                    <div class="dashed-card">
+                        <div class="icon-box">🎬</div>
+                        <h3>影音多元分類</h3>
+                        <p>精細分類官方 MV、綜藝節目、電台與舞台 Performance。</p>
+                    </div>
+                    <div class="dashed-card">
+                        <div class="icon-box">🔍</div>
+                        <h3>關鍵字快速搜尋</h3>
+                        <p>輸入成員名字或活動名稱，秒速尋找特定片段。</p>
+                    </div>
+                    <div class="dashed-card">
+                        <div class="icon-box">🗳️</div>
+                        <h3>投票提醒設定</h3>
+                        <p>整合當前盛典投票時程與教學，應援不漏拍。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 【介紹頁】區塊 (全新獨立頁面) -->
+    <main id="page-about" class="page-section">
+        <section class="section-container">
+            <div class="badge badge-pink">INTRODUCTION</div>
+            <div class="card" style="min-height: 300px; display: flex; align-items: center; justify-content: center;">
+                <!-- 預留空白，後續可自由新增介紹內容 -->
+            </div>
+        </section>
+    </main>
+
+    <!-- 【影音頁】區塊 -->
+    <main id="page-media" class="page-section">
+        <section class="section-container">
+            <div class="badge badge-green">MEDIA ARCHIVE</div>
+            <div class="card">
+                <div class="filter-bar">
+                    <input type="text" id="searchInput" placeholder="🔍 輸入關鍵字（如：MV、洗衣機、成員名字）...">
+                    <select id="sortSelect">
+                        <option value="newest">📅 由新到舊</option>
+                        <option value="oldest">📅 由舊到新</option>
+                    </select>
+                </div>
+                <div class="video-grid" id="videoGrid"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Fan Site for CORTIS • COER STATION</strong></p>
+        <p style="margin-top: 4px; opacity: 0.8; font-size: 11px;">COER STATION is an unofficial fan website dedicated to CORTIS. All dynamic content, official images, and video copyrights belong to their respective owners. No copyright infringement intended.</p>
+    </footer>
+
+    <!-- Modal 彈窗 -->
+    <div class="modal-overlay" id="eventModal">
+        <div class="modal-box">
+            <h3 style="color: var(--main-green);" id="modalTitle">🎉 提醒</h3>
+            <p style="font-size: 14px; margin-top: 10px; color: #444;" id="modalText">區塊準備中！</p>
+            <button class="close-btn" onclick="closeModal()">關閉</button>
+        </div>
+    </div>
+
+    <script>
+        // 頁面切換邏輯
+        function switchPage(pageName) {
+            document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+
+            document.getElementById(`page-${pageName}`).classList.add('active');
+            if(document.getElementById(`btn-${pageName}`)) {
+                document.getElementById(`btn-${pageName}`).classList.add('active');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Modal 彈窗
+        function openModal(msg) {
+            document.getElementById('modalText').innerText = msg;
+            document.getElementById('eventModal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('eventModal').style.display = 'none';
+        }
+
+        // 輪播資料
+        const slides = [
+            {
+                title: "COLOR OUTSIDE THE LINES",
+                agency: "<span class='highlight-bold'>BIGHIT MUSIC</span> 旗下男子團體",
+                members: ["MARTIN", "JAMES", "JUHOON", "SEONGHYEON", "KEONHO"],
+                date: "出道日期：2025 年 8 月 18 日"
+            },
+            {
+                title: "FANCLUB : COER",
+                agency: "與 CORTIS 一起繪製彩虹色彩的強大夥伴",
+                members: ["Love", "Support", "Forever"],
+                date: "COER STATION 常駐服務中"
+            }
+        ];
+        let currentSlide = 0;
+
+        function updateSlide() {
+            const data = slides[currentSlide];
+            document.getElementById('carousel-content').innerHTML = `
+                <h2>${data.title}</h2>
+                <p style="font-size: 13px; color: #444;">${data.agency}</p>
+                <div class="member-pills">
+                    ${data.members.map(m => `<span class="member-pill">${m}</span>`).join('')}
+                </div>
+                <p style="font-size: 12px; color: #666;">${data.date}</p>
+            `;
+        }
+        function nextSlide() { currentSlide = (currentSlide + 1) % slides.length; updateSlide(); }
+        function prevSlide() { currentSlide = (currentSlide - 1 + slides.length) % slides.length; updateSlide(); }
+
+        // 影音資料庫 Fetch
+        let allVideos = [];
+        fetch('videos.json')
+            .then(res => res.json())
+            .then(data => { allVideos = data; processAndRender(); })
+            .catch(err => console.log("videos.json 載入中或未找到"));
+
+        function processAndRender() {
+            const searchText = document.getElementById('searchInput').value.toLowerCase();
+            const sortOrder = document.getElementById('sortSelect').value;
+
+            let filtered = allVideos.filter(v => {
+                return v.title.toLowerCase().includes(searchText) || v.tags.some(t => t.toLowerCase().includes(searchText));
+            });
+
+            filtered.sort((a,b) => sortOrder === 'newest' ? new Date(b.date) - new Date(a.date) : new Date(a.date) - new Date(b.date));
+            
+            const grid = document.getElementById('videoGrid');
+            if(filtered.length === 0) {
+                grid.innerHTML = `<p style="grid-column: 1/-1; padding: 30px; color: #888;">查無相關影片喔！</p>`;
+                return;
+            }
+            grid.innerHTML = filtered.map(v => `
+                <div class="video-card">
+                    <a href="${v.url}" target="_blank">
+                        <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/${v.id}/hqdefault.jpg')">
+                            <span class="video-play-badge">▶ YouTube</span>
+                        </div>
+                    </a>
+                    <div class="video-content">
+                        <div>
+                            <a href="${v.url}" target="_blank" class="video-title">${v.title}</a>
+                            <div class="video-date">📅 ${v.date}</div>
+                        </div>
+                        <div class="video-tags">
+                            ${v.tags.map(t => `<button class="tag-btn" onclick="filterTag('${t}')">#${t}</button>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterTag(tag) {
+            document.getElementById('searchInput').value = tag;
+            processAndRender();
+        }
+
+        document.getElementById('searchInput').addEventListener('input', processAndRender);
+        document.getElementById('sortSelect').addEventListener('change', processAndRender);
+    </script>
+</body>
+</html>
