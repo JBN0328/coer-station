@@ -13,6 +13,7 @@
         :root {
             --bg-color: #FDFFE2;
             --main-green: #62C49A;
+            --dark-green-hover: #3D9970;
             --light-green-shadow: #A3DEBF;
             --light-orange-shadow: #FFD09B;
             --dark-green: #1A312C;
@@ -155,7 +156,7 @@
             position: relative;
         }
 
-        /* 統一三個標題膠囊標籤 Badge（固定寬度與立體邊框陰影） */
+        /* 統一三個標題膠囊標籤 Badge */
         .badge {
             font-family: 'Fredoka', 'Noto Sans TC', sans-serif;
             display: inline-flex;
@@ -201,76 +202,62 @@
 
         .highlight-bold { font-weight: 900; }
 
-        /* 第二段輪播結構（將按鈕改為相對容器定位，不占用卡片寬度） */
+        /* 輪播區塊與按鈕定位 */
         .carousel-wrapper {
             width: 100%;
             position: relative;
             display: flex;
             justify-content: center;
+            align-items: center;
         }
 
-        /* 懸浮在卡片左右側外圍的控制組 */
-        .side-control {
+        /* 左右切換按鈕：絕對定位在白框外側 */
+        .arrow-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            z-index: 20;
-        }
-
-        .side-control.left {
-            left: -20px;
-        }
-
-        .side-control.right {
-            right: -20px;
-        }
-
-        @media (min-width: 820px) {
-            .side-control.left { left: -65px; }
-            .side-control.right { right: -65px; }
-        }
-
-        .arrow-btn {
             background: #84DCC6;
             color: var(--white);
             border: var(--border-style);
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 900;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 2px 2px 0px var(--dark-green);
-            transition: transform 0.1s ease;
+            box-shadow: 2.5px 2.5px 0px var(--dark-green);
+            transition: all 0.2s ease;
+            z-index: 25;
         }
 
-        .arrow-btn:active { transform: scale(0.95); }
-
-        .yoi-pair-group {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: -6px;
-            margin-top: 2px;
+        .arrow-btn.prev-btn {
+            left: -22px;
         }
 
-        .yoi-pair-group img {
-            width: 30px;
-            height: auto;
+        .arrow-btn.next-btn {
+            right: -22px;
         }
 
-        @media (min-width: 768px) {
-            .yoi-pair-group img { width: 40px; }
-            .arrow-btn { width: 50px; height: 50px; font-size: 24px; }
-            .badge { width: 260px; height: 42px; font-size: 16px; margin-bottom: -21px; }
+        @media (min-width: 800px) {
+            .arrow-btn.prev-btn { left: -55px; }
+            .arrow-btn.next-btn { right: -55px; }
+            .arrow-btn { width: 48px; height: 48px; font-size: 24px; }
+        }
+
+        /* 滑鼠懸停 (Hover) 效果：變深顏色並微微放大，讓人知道可點擊 */
+        .arrow-btn:hover {
+            background-color: var(--dark-green-hover);
+            transform: translateY(-50%) scale(1.08);
+            box-shadow: 3.5px 3.5px 0px var(--dark-green);
+        }
+
+        /* 按下 (Active) 效果 */
+        .arrow-btn:active {
+            transform: translateY(-50%) scale(0.95);
+            box-shadow: 1px 1px 0px var(--dark-green);
         }
 
         /* 依照圖片排版的卡片內容樣式 */
@@ -299,13 +286,13 @@
 
         .cortis-members-group {
             display: flex;
-            flex-wrap: nowrap; /* 絕對不換行 */
+            flex-wrap: nowrap;
             justify-content: center;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
             margin: 4px 0;
             width: 100%;
-            overflow-x: auto; /* 預防極小螢幕爆開 */
+            overflow-x: auto;
         }
 
         .member-pill {
@@ -313,12 +300,12 @@
             background-color: var(--member-bg);
             border: var(--border-style);
             border-radius: 20px;
-            padding: 3px 10px; /* 微調內距，確保寬度完美塞入 */
+            padding: 3px 10px;
             font-size: 13px;
             font-weight: 700;
             color: var(--dark-green);
             letter-spacing: 0.3px;
-            white-space: nowrap; /* 強制文字單行 */
+            white-space: nowrap;
             flex-shrink: 0;
         }
 
@@ -451,16 +438,10 @@
                 <div class="badge badge-green">ABOUT CORTIS</div>
                 
                 <div class="carousel-wrapper">
-                    <!-- 左側懸浮控制組 -->
-                    <div class="side-control left">
-                        <button class="arrow-btn" onclick="prevSlide()">&lt;</button>
-                        <div class="yoi-pair-group">
-                            <img src="whiteyoi.png" alt="White Yoi" onerror="this.style.display='none'">
-                            <img src="yellowyoi.png" alt="Yellow Yoi" onerror="this.style.display='none'">
-                        </div>
-                    </div>
+                    <!-- 左切換按鈕 -->
+                    <button class="arrow-btn prev-btn" onclick="prevSlide()">&lt;</button>
 
-                    <!-- 中央卡片框（長寬與上一區塊完全一致） -->
+                    <!-- 中央卡片框 -->
                     <div class="card card-shadow-green" id="carousel-card">
                         <div class="cortis-card-content" id="carousel-content">
                             <div class="cortis-title">COLOR OUTSIDE THE LINES</div>
@@ -476,14 +457,8 @@
                         </div>
                     </div>
 
-                    <!-- 右側懸浮控制組 -->
-                    <div class="side-control right">
-                        <button class="arrow-btn" onclick="nextSlide()">&gt;</button>
-                        <div class="yoi-pair-group">
-                            <img src="blueyoi.png" alt="Blue Yoi" onerror="this.style.display='none'">
-                            <img src="pinkyoi.png" alt="Pink Yoi" onerror="this.style.display='none'">
-                        </div>
-                    </div>
+                    <!-- 右切換按鈕 -->
+                    <button class="arrow-btn next-btn" onclick="nextSlide()">&gt;</button>
                 </div>
             </section>
 
