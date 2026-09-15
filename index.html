@@ -28,11 +28,14 @@
             height: 100%;
         }
 
+        /* 恢復原本的綠色點點背景 */
         body {
             min-height: 100%;
             display: flex;
             flex-direction: column;
             background-color: var(--bg-color);
+            background-image: radial-gradient(var(--main-green) 1px, transparent 1px);
+            background-size: 20px 20px;
             font-family: 'Fredoka', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
             color: var(--dark-green);
             line-height: 1.6;
@@ -186,7 +189,7 @@
             justify-content: center;
         }
 
-        /* 陰影色階（仿圖片右側/下方的雙層質感） */
+        /* 陰影色階（雙層質感） */
         .card-shadow-pink {
             box-shadow: 4px 4px 0px #FFD1DC;
         }
@@ -295,7 +298,7 @@
             font-size: 13px;
         }
 
-        /* 第三區塊 Howard/How To Use 內容樣式 */
+        /* 第三區塊 How To Use 內容樣式 */
         .grid-3 {
             display: grid;
             grid-template-columns: 1fr;
