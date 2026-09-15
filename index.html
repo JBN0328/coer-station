@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>COER STATION • CORTIS Unofficial Fan Site</title>
     
-    <!-- 載入圓潤英文字型 Fredoka 與萬用繁中字型 Noto Sans TC -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet">
@@ -26,18 +25,15 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
-        /* 鎖定全頁寬度與最小高度，實作 Flex 黏性頁尾 */
-        html, body { 
-            scroll-behavior: smooth; 
-            width: 100%;
-            max-width: 100vw;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden !important; 
+        /* 徹底修正跑版：利用 min-height 配合 margin-top: auto 實現穩定頁尾 */
+        html {
+            height: 100%;
         }
 
         body {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
             background-color: var(--bg-color);
             background-image: radial-gradient(var(--main-green) 1px, transparent 1px);
             background-size: 20px 20px;
@@ -45,6 +41,8 @@
             color: var(--dark-green);
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden !important; 
+            width: 100%;
         }
 
         /* 頂部導覽列 */
@@ -60,7 +58,6 @@
             z-index: 100;
             border-bottom: var(--border-style);
             width: 100%;
-            flex-shrink: 0;
         }
 
         @media (min-width: 768px) {
@@ -144,12 +141,14 @@
             color: var(--white);
         }
 
-        /* 頁面內容區塊：用 flex: 1 0 auto 撐開空間 */
-        .page-section { display: none; width: 100%; }
-        .page-section.active { 
-            display: block; 
+        /* 頁面主要區域包裝盒（吸收剩餘高度） */
+        .content-wrapper {
             flex: 1 0 auto;
+            width: 100%;
         }
+
+        .page-section { display: none; width: 100%; }
+        .page-section.active { display: block; }
 
         .section-container {
             width: 100%;
@@ -183,7 +182,7 @@
         .badge-green { background-color: var(--main-green); }
         .badge-orange { background-color: var(--accent-orange); }
 
-        /* 卡片與樣式 */
+        /* 卡片樣式 */
         .card {
             background: var(--white);
             border: var(--border-style);
@@ -324,14 +323,14 @@
         .video-tags { display: flex; flex-wrap: wrap; gap: 4px; }
         .tag-btn { background: var(--bg-color); border: 1px solid var(--dark-green); border-radius: 10px; padding: 1px 6px; font-size: 10px; font-weight: 700; cursor: pointer; }
 
-        /* Footer 永遠固定在底部 */
+        /* Footer 永遠黏在畫面最底部，內容少時置底、內容多時隨頁面滾動 */
         footer {
+            margin-top: auto;
             background-color: var(--dark-green);
             color: var(--white);
             padding: 16px 12px;
             text-align: center;
             font-size: 10px;
-            margin-top: auto;
             border-top: var(--border-style);
             width: 100%;
             flex-shrink: 0;
@@ -367,93 +366,96 @@
         </ul>
     </nav>
 
-    <!-- 【首頁】區塊 -->
-    <main id="page-home" class="page-section active">
-        <section id="about-site" class="section-container">
-            <div class="badge badge-pink">ABOUT COER STATION</div>
-            <div class="card">
-                <p>歡迎來到<span class="highlight-bold">COER STATION！</span>（非官方網站）這裡提供<span class="highlight-bold">CORTIS</span>歷年來的<span class="highlight-pink">影音整理</span>，可以透過影音頁面的搜尋欄進行<span class="highlight-pink">關鍵字搜尋</span>影片，還可以透過投票頁面瞭解目前進行中的<span class="highlight-pink">投票</span>活動及投票的教學，還有關於<span class="highlight-bold">CORTIS</span>團體、人物的<span class="highlight-pink">介紹</span>以及<span class="highlight-pink">認人</span>小教室，歡迎各位<span class="highlight-bold">COER</span>使用本網站<span class="highlight-bold">!!!</span></p>
-            </div>
-        </section>
+    <!-- 主內容區塊包裝層 -->
+    <div class="content-wrapper">
+        <!-- 【首頁】區塊 -->
+        <main id="page-home" class="page-section active">
+            <section id="about-site" class="section-container">
+                <div class="badge badge-pink">ABOUT COER STATION</div>
+                <div class="card">
+                    <p>歡迎來到<span class="highlight-bold">COER STATION！</span>（非官方網站）這裡提供<span class="highlight-bold">CORTIS</span>歷年來的<span class="highlight-pink">影音整理</span>，可以透過影音頁面的搜尋欄進行<span class="highlight-pink">關鍵字搜尋</span>影片，還可以透過投票頁面瞭解目前進行中的<span class="highlight-pink">投票</span>活動及投票的教學，還有關於<span class="highlight-bold">CORTIS</span>團體、人物的<span class="highlight-pink">介紹</span>以及<span class="highlight-pink">認人</span>小教室，歡迎各位<span class="highlight-bold">COER</span>使用本網站<span class="highlight-bold">!!!</span></p>
+                </div>
+            </section>
 
-        <section id="about-cortis" class="section-container">
-            <div class="badge badge-green">ABOUT CORTIS</div>
-            <div class="outer-card-green">
-                <div class="carousel-outer">
-                    <button class="arrow-btn" onclick="prevSlide()">＜</button>
-                    
-                    <div class="inner-carousel-card" id="carousel-content">
-                        <h2>COLOR OUTSIDE THE LINES</h2>
-                        <p style="font-size: 12px; color: #444;"><span class="highlight-bold">BIGHIT MUSIC</span> 旗下男子團體</p>
+            <section id="about-cortis" class="section-container">
+                <div class="badge badge-green">ABOUT CORTIS</div>
+                <div class="outer-card-green">
+                    <div class="carousel-outer">
+                        <button class="arrow-btn" onclick="prevSlide()">＜</button>
                         
-                        <div class="member-pills">
-                            <span class="member-pill">MARTIN</span>
-                            <span class="member-pill">JAMES</span>
-                            <span class="member-pill">JUHOON</span>
-                            <span class="member-pill">SEONGHYEON</span>
-                            <span class="member-pill">KEONHO</span>
+                        <div class="inner-carousel-card" id="carousel-content">
+                            <h2>COLOR OUTSIDE THE LINES</h2>
+                            <p style="font-size: 12px; color: #444;"><span class="highlight-bold">BIGHIT MUSIC</span> 旗下男子團體</p>
+                            
+                            <div class="member-pills">
+                                <span class="member-pill">MARTIN</span>
+                                <span class="member-pill">JAMES</span>
+                                <span class="member-pill">JUHOON</span>
+                                <span class="member-pill">SEONGHYEON</span>
+                                <span class="member-pill">KEONHO</span>
+                            </div>
+                            
+                            <p style="font-size: 11px; color: #666;">出道日期：2025 年 8 月 18 日</p>
                         </div>
-                        
-                        <p style="font-size: 11px; color: #666;">出道日期：2025 年 8 月 18 日</p>
-                    </div>
 
-                    <button class="arrow-btn" onclick="nextSlide()">＞</button>
-                </div>
-            </div>
-        </section>
-
-        <section id="how-to-use" class="section-container">
-            <div class="badge badge-orange">HOW TO USE</div>
-            <div class="outer-card-orange">
-                <div class="grid-3">
-                    <div class="dashed-card">
-                        <div class="icon-box">🎬</div>
-                        <h3>影音多元分類</h3>
-                        <p>精細分類官方 MV、綜藝節目、電台與舞台 Performance。</p>
-                    </div>
-                    <div class="dashed-card">
-                        <div class="icon-box">🔍</div>
-                        <h3>關鍵字快速搜尋</h3>
-                        <p>輸入成員名字或活動名稱，秒速尋找特定片段。</p>
-                    </div>
-                    <div class="dashed-card">
-                        <div class="icon-box">🗳️</div>
-                        <h3>投票提醒設定</h3>
-                        <p>整合當前盛典投票時程與教學，應援不漏拍。</p>
+                        <button class="arrow-btn" onclick="nextSlide()">＞</button>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
 
-    <!-- 【介紹頁】區塊 -->
-    <main id="page-about" class="page-section">
-        <section class="section-container">
-            <div class="badge badge-pink">INTRODUCTION</div>
-            <div class="card" style="min-height: 250px; display: flex; align-items: center; justify-content: center;">
-                <p style="color: #888;">介紹頁面內容建置中...</p>
-            </div>
-        </section>
-    </main>
-
-    <!-- 【影音頁】區塊 -->
-    <main id="page-media" class="page-section">
-        <section class="section-container">
-            <div class="badge badge-green">MEDIA ARCHIVE</div>
-            <div class="card">
-                <div class="filter-bar">
-                    <input type="text" id="searchInput" placeholder="🔍 輸入關鍵字（如：MV、成員名字）...">
-                    <select id="sortSelect">
-                        <option value="newest">📅 由新到舊</option>
-                        <option value="oldest">📅 由舊到新</option>
-                    </select>
+            <section id="how-to-use" class="section-container">
+                <div class="badge badge-orange">HOW TO USE</div>
+                <div class="outer-card-orange">
+                    <div class="grid-3">
+                        <div class="dashed-card">
+                            <div class="icon-box">🎬</div>
+                            <h3>影音多元分類</h3>
+                            <p>精細分類官方 MV、綜藝節目、電台與舞台 Performance。</p>
+                        </div>
+                        <div class="dashed-card">
+                            <div class="icon-box">🔍</div>
+                            <h3>關鍵字快速搜尋</h3>
+                            <p>輸入成員名字或活動名稱，秒速尋找特定片段。</p>
+                        </div>
+                        <div class="dashed-card">
+                            <div class="icon-box">🗳️</div>
+                            <h3>投票提醒設定</h3>
+                            <p>整合當前盛典投票時程與教學，應援不漏拍。</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="video-grid" id="videoGrid"></div>
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
 
-    <!-- Footer 頁尾 -->
+        <!-- 【介紹頁】區塊 -->
+        <main id="page-about" class="page-section">
+            <section class="section-container">
+                <div class="badge badge-pink">INTRODUCTION</div>
+                <div class="card" style="min-height: 250px; display: flex; align-items: center; justify-content: center;">
+                    <p style="color: #888;">介紹頁面內容建置中...</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- 【影音頁】區塊 -->
+        <main id="page-media" class="page-section">
+            <section class="section-container">
+                <div class="badge badge-green">MEDIA ARCHIVE</div>
+                <div class="card">
+                    <div class="filter-bar">
+                        <input type="text" id="searchInput" placeholder="🔍 輸入關鍵字（如：MV、成員名字）...">
+                        <select id="sortSelect">
+                            <option value="newest">📅 由新到舊</option>
+                            <option value="oldest">📅 由舊到新</option>
+                        </select>
+                    </div>
+                    <div class="video-grid" id="videoGrid"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- 頁尾：確保永遠貼在視窗底部 -->
     <footer>
         <p><strong>Fan Site for CORTIS • COER STATION</strong></p>
         <p style="margin-top: 4px; opacity: 0.8;">COER STATION is an unofficial fan website dedicated to CORTIS. All dynamic content, official images, and video copyrights belong to their respective owners. No copyright infringement intended.</p>
