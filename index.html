@@ -42,7 +42,7 @@
         /* 頂部導覽列 */
         .navbar {
             background-color: var(--main-green);
-            padding: 14px 5%;
+            padding: 12px 4%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -50,6 +50,7 @@
             top: 0;
             z-index: 100;
             border-bottom: var(--border-style);
+            flex-wrap: wrap;
         }
 
         .logo-group {
@@ -75,20 +76,20 @@
         .logo-text {
             font-family: 'Fredoka', sans-serif;
             color: var(--white);
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 700;
             letter-spacing: 1px;
             text-shadow: 2px 2px 0px var(--dark-green);
-            margin: 0 6px;
+            margin: 0 4px;
         }
 
-        .nav-links { display: flex; gap: 10px; list-style: none; }
+        .nav-links { display: flex; gap: 8px; list-style: none; flex-wrap: wrap; }
 
         .nav-btn {
             font-family: 'Fredoka', 'Noto Sans TC', sans-serif;
             background: var(--white);
             color: var(--dark-green);
-            padding: 6px 18px;
+            padding: 6px 16px;
             border-radius: 50px;
             font-weight: 700;
             font-size: 14px;
@@ -111,8 +112,8 @@
 
         .section-container {
             max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
+            margin: 30px auto;
+            padding: 0 16px;
             text-align: center;
         }
 
@@ -120,15 +121,15 @@
         .badge {
             font-family: 'Fredoka', 'Noto Sans TC', sans-serif;
             display: inline-block;
-            padding: 6px 36px;
+            padding: 6px 30px;
             border-radius: 50px;
             color: var(--white);
             font-weight: 700;
-            font-size: 18px;
+            font-size: 16px;
             letter-spacing: 0.5px;
             border: var(--border-style);
             box-shadow: 2px 2px 0px var(--dark-green);
-            margin-bottom: -18px;
+            margin-bottom: -16px;
             position: relative;
             z-index: 10;
         }
@@ -142,20 +143,20 @@
             background: var(--white);
             border: var(--border-style);
             border-radius: 20px;
-            padding: 35px 25px 25px 25px;
+            padding: 30px 20px 20px 20px;
             box-shadow: var(--sticker-shadow);
             font-size: 15px;
             font-weight: 500;
         }
 
-        /* 外層彩色框框卡片 (圖二樣式) */
+        /* 外層彩色框框卡片 */
         .outer-card-green {
             background-color: var(--light-green-bg);
             background-image: radial-gradient(var(--main-green) 1.2px, transparent 1.2px);
             background-size: 18px 18px;
             border: var(--border-style);
             border-radius: 28px;
-            padding: 30px 25px;
+            padding: 25px 16px;
             box-shadow: var(--sticker-shadow);
         }
 
@@ -165,29 +166,29 @@
             background-size: 18px 18px;
             border: var(--border-style);
             border-radius: 28px;
-            padding: 30px 20px;
+            padding: 25px 16px;
             box-shadow: var(--sticker-shadow);
         }
 
         .highlight-pink { color: var(--accent-pink); font-weight: 700; }
         .highlight-bold { font-weight: 900; }
 
-        /* ABOUT CORTIS 輪播與裝飾圖組合 */
+        /* ABOUT CORTIS 輪播 */
         .carousel-outer {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
+            gap: 10px;
         }
 
         .arrow-btn {
             background: var(--main-green);
             color: var(--white);
             border: var(--border-style);
-            width: 44px;
-            height: 44px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
             cursor: pointer;
             box-shadow: 2px 2px 0px var(--dark-green);
@@ -205,14 +206,14 @@
             background: var(--white);
             border: var(--border-style);
             border-radius: 22px;
-            padding: 25px 20px;
+            padding: 20px 15px;
             box-shadow: 2px 2px 0px var(--dark-green);
             text-align: center;
         }
 
         .inner-carousel-card h2 {
             font-family: 'Fredoka', sans-serif;
-            font-size: 20px;
+            font-size: 18px;
             color: var(--main-green);
             margin-bottom: 6px;
         }
@@ -222,15 +223,15 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 8px;
-            margin: 14px 0;
+            gap: 6px;
+            margin: 12px 0;
         }
 
         .member-pill {
             background: var(--white);
             border: 1.5px solid var(--dark-green);
             border-radius: 20px;
-            padding: 3px 14px;
+            padding: 2px 10px;
             font-size: 12px;
             font-weight: 700;
         }
@@ -238,7 +239,7 @@
         /* HOW TO USE 網格卡片 */
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 16px;
         }
 
@@ -246,48 +247,96 @@
             background: var(--white);
             border: 2px dashed var(--accent-orange);
             border-radius: 20px;
-            padding: 25px 15px;
+            padding: 20px 12px;
             text-align: center;
         }
 
-        .icon-box {
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-
-        .dashed-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-        .dashed-card p { font-size: 13px; color: #555; line-height: 1.5; font-weight: 500; }
+        .icon-box { font-size: 26px; margin-bottom: 8px; }
+        .dashed-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+        .dashed-card p { font-size: 12px; color: #555; line-height: 1.5; font-weight: 500; }
 
         /* 影音頁 Filter Bar & Video Grid */
         .filter-bar { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
-        #searchInput { flex: 2; padding: 10px 18px; border: var(--border-style); border-radius: 50px; font-size: 14px; outline: none; font-family: inherit; font-weight: 500; }
-        #sortSelect { flex: 1; padding: 10px 18px; border: var(--border-style); border-radius: 50px; font-size: 14px; background: var(--bg-color); font-weight: 700; cursor: pointer; font-family: inherit; }
+        #searchInput { flex: 2; padding: 10px 16px; border: var(--border-style); border-radius: 50px; font-size: 14px; outline: none; font-family: inherit; font-weight: 500; min-width: 180px; }
+        #sortSelect { flex: 1; padding: 10px 16px; border: var(--border-style); border-radius: 50px; font-size: 14px; background: var(--bg-color); font-weight: 700; cursor: pointer; font-family: inherit; min-width: 120px; }
 
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
         .video-card { background: var(--white); border: var(--border-style); border-radius: 18px; overflow: hidden; box-shadow: var(--sticker-shadow); text-align: left; display: flex; flex-direction: column; }
         .video-thumb { width: 100%; height: 140px; background-size: cover; background-position: center; border-bottom: var(--border-style); position: relative; }
-        .video-play-badge { font-family: 'Fredoka', sans-serif; position: absolute; bottom: 8px; right: 8px; background: var(--accent-pink); color: var(--white); padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 700; border: 1px solid var(--dark-green); }
-        .video-content { padding: 14px; display: flex; flex-direction: column; justify-content: space-between; flex: 1; }
-        .video-title { font-size: 14px; font-weight: 700; color: var(--dark-green); text-decoration: none; margin-bottom: 6px; display: block; }
-        .video-date { font-size: 12px; color: #666; margin-bottom: 8px; font-weight: 500; }
+        .video-play-badge { font-family: 'Fredoka', sans-serif; position: absolute; bottom: 8px; right: 8px; background: var(--accent-pink); color: var(--white); padding: 2px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; border: 1px solid var(--dark-green); }
+        .video-content { padding: 12px; display: flex; flex-direction: column; justify-content: space-between; flex: 1; }
+        .video-title { font-size: 13px; font-weight: 700; color: var(--dark-green); text-decoration: none; margin-bottom: 6px; display: block; }
+        .video-date { font-size: 11px; color: #666; margin-bottom: 8px; font-weight: 500; }
         .video-tags { display: flex; flex-wrap: wrap; gap: 4px; }
-        .tag-btn { font-family: inherit; background: var(--bg-color); border: 1px solid var(--dark-green); border-radius: 12px; padding: 2px 8px; font-size: 11px; font-weight: 700; cursor: pointer; }
+        .tag-btn { font-family: inherit; background: var(--bg-color); border: 1px solid var(--dark-green); border-radius: 12px; padding: 2px 8px; font-size: 10px; font-weight: 700; cursor: pointer; }
 
         /* Footer */
         footer {
             background-color: var(--dark-green);
             color: var(--white);
-            padding: 25px 20px;
+            padding: 20px 16px;
             text-align: center;
-            font-size: 12px;
-            margin-top: 60px;
+            font-size: 11px;
+            margin-top: 40px;
             border-top: var(--border-style);
         }
 
         /* Modal */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; z-index: 1000; }
-        .modal-box { background: var(--white); border: var(--border-style); border-radius: 20px; padding: 30px; max-width: 320px; text-align: center; box-shadow: var(--sticker-shadow); }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; z-index: 1000; padding: 16px; }
+        .modal-box { background: var(--white); border: var(--border-style); border-radius: 20px; padding: 24px; width: 100%; max-width: 300px; text-align: center; box-shadow: var(--sticker-shadow); }
         .close-btn { font-family: inherit; margin-top: 15px; background: var(--accent-pink); color: var(--white); border: var(--border-style); padding: 6px 20px; border-radius: 20px; font-weight: 700; cursor: pointer; }
+
+        /* 📱 手機版 RWD 響應式佈局 */
+        @media (max-width: 640px) {
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px 12px;
+            }
+
+            .logo-text { font-size: 22px; }
+            .logo-pair img { height: 26px; }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                gap: 6px;
+            }
+
+            .nav-btn {
+                padding: 4px 12px;
+                font-size: 12px;
+            }
+
+            .section-container {
+                margin: 20px auto;
+                padding: 0 12px;
+            }
+
+            .badge {
+                font-size: 14px;
+                padding: 4px 24px;
+                margin-bottom: -14px;
+            }
+
+            .card { padding: 24px 14px 16px 14px; font-size: 14px; }
+            
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-bar {
+                flex-direction: column;
+            }
+
+            #searchInput, #sortSelect {
+                width: 100%;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -324,7 +373,7 @@
             </div>
         </section>
 
-        <!-- ABOUT CORTIS (圖二樣式) -->
+        <!-- ABOUT CORTIS -->
         <section id="about-cortis" class="section-container">
             <div class="badge badge-green">ABOUT CORTIS</div>
             <div class="outer-card-green">
@@ -351,7 +400,7 @@
             </div>
         </section>
 
-        <!-- HOW TO USE (圖二樣式) -->
+        <!-- HOW TO USE -->
         <section id="how-to-use" class="section-container">
             <div class="badge badge-orange">HOW TO USE</div>
             <div class="outer-card-orange">
@@ -376,7 +425,7 @@
         </section>
     </main>
 
-    <!-- 【介紹頁】區塊 (全新獨立頁面) -->
+    <!-- 【介紹頁】區塊 (獨立頁面預留處) -->
     <main id="page-about" class="page-section">
         <section class="section-container">
             <div class="badge badge-pink">INTRODUCTION</div>
@@ -392,7 +441,7 @@
             <div class="badge badge-green">MEDIA ARCHIVE</div>
             <div class="card">
                 <div class="filter-bar">
-                    <input type="text" id="searchInput" placeholder="🔍 輸入關鍵字（如：MV、洗衣機、成員名字）...">
+                    <input type="text" id="searchInput" placeholder="🔍 輸入關鍵字（如：MV、成員名字）...">
                     <select id="sortSelect">
                         <option value="newest">📅 由新到舊</option>
                         <option value="oldest">📅 由舊到新</option>
