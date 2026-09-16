@@ -200,6 +200,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            min-height: 200px;
         }
 
         @media (max-width: 500px) {
@@ -345,8 +346,79 @@
             font-weight: 900;
         }
 
-        /* 手機版微調 */
+        /* 個別成員卡片專用樣式 */
+        .member-profile-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            width: 100%;
+            text-align: left;
+            padding: 10px 10px;
+        }
+
+        .member-avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 16px;
+            object-fit: cover;
+            border: 2px solid var(--dark-green);
+            flex-shrink: 0;
+            background-color: #eee;
+        }
+
+        .member-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex: 1;
+            max-width: 320px;
+        }
+
+        .info-field {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 4px;
+        }
+
+        .info-label {
+            background-color: #62C49A;
+            color: var(--white);
+            padding: 2px 14px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .info-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--dark-green);
+            padding-left: 2px;
+        }
+
+        .info-value .en-name {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
         @media (max-width: 500px) {
+            .member-profile-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 16px;
+            }
+            .info-field {
+                align-items: center;
+            }
+            .member-avatar {
+                width: 110px;
+                height: 110px;
+            }
             .cortis-title, .welcome-title { font-size: 18px; }
             .cortis-desc { font-size: 13.5px; }
             .members-label { font-size: 13.5px; }
@@ -492,27 +564,7 @@
                     <!-- 中央卡片框 -->
                     <div class="card card-shadow-green" id="carousel-card">
                         <div class="cortis-card-content" id="carousel-content">
-                            <!-- 雙色標題 -->
-                            <div class="cortis-title">
-                                <span class="g-text">COLOR</span> OU<span class="g-text">T</span>SIDE THE LINE<span class="g-text">S</span>
-                            </div>
-                            
-                            <!-- 文字與內文 -->
-                            <div class="cortis-desc">
-                                韓國<strong>HYBE</strong>旗下公司<strong>BIGHIT MUSIC</strong>推出的男子團體
-                            </div>
-
-                            <div class="cortis-members-wrapper">
-                                <div class="members-label">成員包括</div>
-                                <div class="members-names">
-                                    <span class="member-name">MARTIN</span>、<span class="member-name">JAMES</span>、<span class="member-name">JUHOON</span>、<br>
-                                    <span class="member-name">SEONGHYEON</span>、<span class="member-name">KEONHO</span>
-                                </div>
-                            </div>
-
-                            <div class="cortis-date">
-                                出道日期 <strong>2025年8月18日</strong>
-                            </div>
+                            <!-- JS 自動帶入卡片內容 -->
                         </div>
                     </div>
 
@@ -610,40 +662,137 @@
             document.getElementById('eventModal').style.display = 'none';
         }
 
-        // 輪播切換資料
+        // 輪播切換資料 (新增五位成員)
         const slides = [
+            // 團體簡介
             {
-                title: `<span class="g-text">COLOR</span> OU<span class="g-text">T</span>SIDE THE LINE<span class="g-text">S</span>`,
-                desc: `韓國<strong>HYBE</strong>旗下公司<strong>BIGHIT MUSIC</strong>推出的男子團體`,
-                membersLabel: `成員包括`,
-                membersNames: `<span class="member-name">MARTIN</span>、<span class="member-name">JAMES</span>、<span class="member-name">JUHOON</span>、<br><span class="member-name">SEONGHYEON</span>、<span class="member-name">KEONHO</span>`,
-                date: `出道日期 <strong>2025年8月18日</strong>`
+                type: 'group',
+                html: `
+                    <div class="cortis-title">
+                        <span class="g-text">COLOR</span> OU<span class="g-text">T</span>SIDE THE LINE<span class="g-text">S</span>
+                    </div>
+                    <div class="cortis-desc">
+                        韓國<strong>HYBE</strong>旗下公司<strong>BIGHIT MUSIC</strong>推出的男子團體
+                    </div>
+                    <div class="cortis-members-wrapper">
+                        <div class="members-label">成員包括</div>
+                        <div class="members-names">
+                            <span class="member-name">MARTIN</span>、<span class="member-name">JAMES</span>、<span class="member-name">JUHOON</span>、<br>
+                            <span class="member-name">SEONGHYEON</span>、<span class="member-name">KEONHO</span>
+                        </div>
+                    </div>
+                    <div class="cortis-date">
+                        出道日期 <strong>2025年8月18日</strong>
+                    </div>
+                `
             },
+            // 成員 1: MARTIN
             {
-                title: `<span class="g-text">FANCLUB</span> : COER`,
-                desc: `與 <strong>CORTIS</strong> 一起繪製彩虹色彩的強大夥伴`,
-                membersLabel: `應援精神`,
-                membersNames: `<span class="member-name">Love</span>、<span class="member-name">Support</span>、<span class="member-name">Forever</span>`,
-                date: `<strong>COER STATION</strong> 常駐服務中`
+                type: 'member',
+                html: `
+                    <div class="member-profile-card">
+                        <img src="martin.jpg" alt="MARTIN" class="member-avatar" onerror="this.src='https://via.placeholder.com/130?text=MARTIN'">
+                        <div class="member-info">
+                            <div class="info-field">
+                                <span class="info-label">姓名</span>
+                                <span class="info-value"><span class="en-name">MARTIN</span> 마틴 朴宇宙</span>
+                            </div>
+                            <div class="info-field">
+                                <span class="info-label">生日</span>
+                                <span class="info-value">2008/03/20</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // 成員 2: JAMES
+            {
+                type: 'member',
+                html: `
+                    <div class="member-profile-card">
+                        <img src="james.jpg" alt="JAMES" class="member-avatar" onerror="this.src='https://via.placeholder.com/130?text=JAMES'">
+                        <div class="member-info">
+                            <div class="info-field">
+                                <span class="info-label">姓名</span>
+                                <span class="info-value"><span class="en-name">JAMES</span> 제임스 趙雨凡</span>
+                            </div>
+                            <div class="info-field">
+                                <span class="info-label">生日</span>
+                                <span class="info-value">2005/10/14</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // 成員 3: JUHOON
+            {
+                type: 'member',
+                html: `
+                    <div class="member-profile-card">
+                        <img src="juhoon.jpg" alt="JUHOON" class="member-avatar" onerror="this.src='https://via.placeholder.com/130?text=JUHOON'">
+                        <div class="member-info">
+                            <div class="info-field">
+                                <span class="info-label">姓名</span>
+                                <span class="info-value"><span class="en-name">JUHOON</span> 주훈 金主訓</span>
+                            </div>
+                            <div class="info-field">
+                                <span class="info-label">生日</span>
+                                <span class="info-value">2008/01/03</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // 成員 4: SEONGHYEON
+            {
+                type: 'member',
+                html: `
+                    <div class="member-profile-card">
+                        <img src="seonghyeon.jpg" alt="SEONGHYEON" class="member-avatar" onerror="this.src='https://via.placeholder.com/130?text=SEONGHYEON'">
+                        <div class="member-info">
+                            <div class="info-field">
+                                <span class="info-label">姓名</span>
+                                <span class="info-value"><span class="en-name">SEONGHYEON</span> 성현 嚴成玹</span>
+                            </div>
+                            <div class="info-field">
+                                <span class="info-label">生日</span>
+                                <span class="info-value">2009/01/13</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            // 成員 5: KEONHO
+            {
+                type: 'member',
+                html: `
+                    <div class="member-profile-card">
+                        <img src="keonho.jpg" alt="KEONHO" class="member-avatar" onerror="this.src='https://via.placeholder.com/130?text=KEONHO'">
+                        <div class="member-info">
+                            <div class="info-field">
+                                <span class="info-label">姓名</span>
+                                <span class="info-value"><span class="en-name">KEONHO</span> 건호 安乾鎬</span>
+                            </div>
+                            <div class="info-field">
+                                <span class="info-label">生日</span>
+                                <span class="info-value">2009/02/14</span>
+                            </div>
+                        </div>
+                    </div>
+                `
             }
         ];
         let currentSlide = 0;
 
         function updateSlide() {
             const data = slides[currentSlide];
-            
-            document.getElementById('carousel-content').innerHTML = `
-                <div class="cortis-title">${data.title}</div>
-                <div class="cortis-desc">${data.desc}</div>
-                <div class="cortis-members-wrapper">
-                    <div class="members-label">${data.membersLabel}</div>
-                    <div class="members-names">${data.membersNames}</div>
-                </div>
-                <div class="cortis-date">${data.date}</div>
-            `;
+            document.getElementById('carousel-content').innerHTML = data.html;
         }
         function nextSlide() { currentSlide = (currentSlide + 1) % slides.length; updateSlide(); }
         function prevSlide() { currentSlide = (currentSlide - 1 + slides.length) % slides.length; updateSlide(); }
+
+        // 初始化載入第一張卡片
+        updateSlide();
 
         let allVideos = [];
         fetch('videos.json')
