@@ -7,7 +7,8 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Noto+Sans+TC:wght@500;700;900&display=swap" rel="stylesheet">
+    <!-- 載入 Fredoka (英文) 以及 源泉圓體 GenSenRounded TC 500 (中文) -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=GenSenRounded+TC:wght@500;700;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -31,7 +32,7 @@
             height: 100%;
         }
 
-        /* 綠色點點背景 */
+        /* 綠色點點背景與全域字體設定 */
         body {
             min-height: 100%;
             display: flex;
@@ -39,7 +40,8 @@
             background-color: var(--bg-color);
             background-image: radial-gradient(var(--main-green) 1px, transparent 1px);
             background-size: 20px 20px;
-            font-family: 'Fredoka', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+            font-family: 'Fredoka', 'GenSenRounded TC', sans-serif;
+            font-weight: 500;
             color: var(--dark-green);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
@@ -119,7 +121,7 @@
         }
 
         .nav-btn {
-            font-family: 'Fredoka', 'Noto Sans TC', sans-serif;
+            font-family: 'Fredoka', 'GenSenRounded TC', sans-serif;
             background: var(--white);
             color: var(--dark-green);
             padding: 4px 12px;
@@ -159,7 +161,7 @@
 
         /* 統一三個標題膠囊標籤 Badge */
         .badge {
-            font-family: 'Fredoka', 'Noto Sans TC', sans-serif;
+            font-family: 'Fredoka', 'GenSenRounded TC', sans-serif;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -321,7 +323,7 @@
         }
 
         .members-names {
-            font-family: 'Fredoka', 'Noto Sans TC', sans-serif;
+            font-family: 'Fredoka', 'GenSenRounded TC', sans-serif;
             font-size: 16px;
             font-weight: 900;
             color: var(--dark-green);
@@ -375,7 +377,16 @@
 
         /* 影音頁 Filter Bar & Video Grid */
         .filter-bar { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; width: 100%; }
-        #searchInput, #sortSelect { width: 100%; padding: 8px 14px; border: var(--border-style); border-radius: 50px; font-size: 13px; font-weight: 700; outline: none; }
+        #searchInput, #sortSelect { 
+            width: 100%; 
+            padding: 8px 14px; 
+            border: var(--border-style); 
+            border-radius: 50px; 
+            font-size: 13px; 
+            font-family: 'Fredoka', 'GenSenRounded TC', sans-serif;
+            font-weight: 500; 
+            outline: none; 
+        }
 
         @media (min-width: 600px) {
             .filter-bar { flex-direction: row; }
@@ -395,7 +406,16 @@
         .video-title { font-size: 12px; font-weight: 700; color: var(--dark-green); text-decoration: none; margin-bottom: 4px; display: block; }
         .video-date { font-size: 10px; color: #666; margin-bottom: 6px; }
         .video-tags { display: flex; flex-wrap: wrap; gap: 4px; }
-        .tag-btn { background: var(--bg-color); border: 1px solid var(--dark-green); border-radius: 10px; padding: 1px 6px; font-size: 10px; font-weight: 700; cursor: pointer; }
+        .tag-btn { 
+            background: var(--bg-color); 
+            border: 1px solid var(--dark-green); 
+            border-radius: 10px; 
+            padding: 1px 6px; 
+            font-size: 10px; 
+            font-family: 'Fredoka', 'GenSenRounded TC', sans-serif;
+            font-weight: 500; 
+            cursor: pointer; 
+        }
 
         /* Footer Sticky */
         footer {
@@ -413,7 +433,7 @@
         /* Modal 彈窗 */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; z-index: 1000; padding: 16px; }
         .modal-box { background: var(--white); border: var(--border-style); border-radius: 18px; padding: 20px; width: 100%; max-width: 280px; text-align: center; box-shadow: 3px 3px 0px var(--dark-green); }
-        .close-btn { margin-top: 12px; background: var(--accent-pink); color: var(--white); border: var(--border-style); padding: 4px 16px; border-radius: 20px; font-weight: 700; cursor: pointer; }
+        .close-btn { margin-top: 12px; background: var(--accent-pink); color: var(--white); border: var(--border-style); padding: 4px 16px; border-radius: 20px; font-weight: 700; font-family: 'Fredoka', 'GenSenRounded TC', sans-serif; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -451,7 +471,8 @@
                 <div class="card card-shadow-pink">
                     <p style="text-align: center;">
                         <span class="welcome-title">歡迎來到COER STATION！</span>
-                        這裡提供<span class="highlight-bold">CORTIS</span>的影音整理（搜尋欄查詢）<br>投票活動整理、團體/成員介紹等功能<br>
+                        這裡提供<span class="highlight-bold">CORTIS</span>的影音整理（搜尋欄查詢）<br>
+                        投票活動整理、團體/成員介紹等功能<br>
                         歡迎各位<span class="highlight-bold">COER</span>使用本網站<span class="highlight-bold">!!!</span>
                     </p>
                 </div>
