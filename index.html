@@ -18,6 +18,7 @@
             --light-orange-shadow: #FFD09B;
             --dark-green: #1A312C;
             --accent-pink: #FFA3B5;
+            --badge-pink: #FF8BA7;
             --accent-orange: #FFA834;
             --white: #FFFFFF;
             --member-bg: #FDFFE2;
@@ -176,7 +177,7 @@
             z-index: 10;
         }
 
-        .badge-pink { background-color: #FF8BA7; }
+        .badge-pink { background-color: var(--badge-pink); }
         .badge-green { background-color: #5DBB93; }
         .badge-orange { background-color: #FFA834; }
 
@@ -190,7 +191,7 @@
             font-weight: 500;
             word-break: break-word;
             width: 100%;
-            height: auto; /* 自動延伸高度，不固定死 */
+            height: auto;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -198,7 +199,7 @@
 
         @media (max-width: 500px) {
             .card {
-                padding: 28px 12px 20px 12px; /* 手機端自動微縮內距 */
+                padding: 28px 12px 20px 12px;
             }
         }
 
@@ -207,6 +208,16 @@
         .card-shadow-orange { box-shadow: 4px 4px 0px #FFE1AF; }
 
         .highlight-bold { font-weight: 900; }
+
+        /* 首頁 WELCOME 粉紅大字標題樣式 */
+        .welcome-title {
+            color: var(--badge-pink);
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            display: block;
+        }
 
         /* 輪播區塊與按鈕定位 */
         .carousel-wrapper {
@@ -284,7 +295,7 @@
         }
 
         /* 特定字母綠色效果 */
-        .cortis-title .g-text {
+        .cortis-title .g-text, .member-name {
             color: #62C49A;
         }
 
@@ -331,7 +342,7 @@
 
         /* 手機版微調 */
         @media (max-width: 500px) {
-            .cortis-title { font-size: 18px; }
+            .cortis-title, .welcome-title { font-size: 18px; }
             .cortis-desc { font-size: 13.5px; }
             .members-label { font-size: 13.5px; }
             .members-names { font-size: 14.5px; }
@@ -439,7 +450,7 @@
                 <div class="badge badge-pink">ABOUT COER STATION</div>
                 <div class="card card-shadow-pink">
                     <p style="text-align: center;">
-                        歡迎來到<span class="highlight-bold">COER STATION！</span>（非官方網站）<br>
+                        <span class="welcome-title">歡迎來到COER STATION！</span>
                         這裡提供<span class="highlight-bold">CORTIS</span>的影音整理（可使用搜尋欄查詢）、投票活動整理、團體/成員介紹等功能<br>
                         歡迎各位<span class="highlight-bold">COER</span>使用本網站<span class="highlight-bold">!!!</span>
                     </p>
@@ -470,8 +481,8 @@
                             <div class="cortis-members-wrapper">
                                 <div class="members-label">成員包括</div>
                                 <div class="members-names">
-                                    MARTIN、JAMES、JUHOON、<br>
-                                    SEONGHYEON、KEONHO
+                                    <span class="member-name">MARTIN</span>、<span class="member-name">JAMES</span>、<span class="member-name">JUHOON</span>、<br>
+                                    <span class="member-name">SEONGHYEON</span>、<span class="member-name">KEONHO</span>
                                 </div>
                             </div>
 
@@ -581,14 +592,14 @@
                 title: `<span class="g-text">COLOR</span> OU<span class="g-text">T</span>SIDE THE LINE<span class="g-text">S</span>`,
                 desc: `韓國<strong>HYBE</strong>旗下公司<strong>BIGHIT MUSIC</strong>推出的男子團體`,
                 membersLabel: `成員包括`,
-                membersNames: `MARTIN、JAMES、JUHOON、<br>SEONGHYEON、KEONHO`,
+                membersNames: `<span class="member-name">MARTIN</span>、<span class="member-name">JAMES</span>、<span class="member-name">JUHOON</span>、<br><span class="member-name">SEONGHYEON</span>、<span class="member-name">KEONHO</span>`,
                 date: `出道日期 <strong>2025年8月18日</strong>`
             },
             {
                 title: `<span class="g-text">FANCLUB</span> : COER`,
                 desc: `與 <strong>CORTIS</strong> 一起繪製彩虹色彩的強大夥伴`,
                 membersLabel: `應援精神`,
-                membersNames: `Love、Support、Forever`,
+                membersNames: `<span class="member-name">Love</span>、<span class="member-name">Support</span>、<span class="member-name">Forever</span>`,
                 date: `<strong>COER STATION</strong> 常駐服務中`
             }
         ];
