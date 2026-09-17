@@ -350,7 +350,7 @@
         /* 個別成員卡片專用樣式 */
         .member-profile-card {
             display: flex;
-            flex-direction: column; /* 手機版預設：照片在上，資訊在下 */
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 16px;
@@ -360,7 +360,7 @@
 
         @media (min-width: 600px) {
             .member-profile-card {
-                flex-direction: row; /* 電腦版：照片在左，資訊在右 */
+                flex-direction: row;
                 justify-content: center;
                 gap: 24px;
             }
@@ -385,7 +385,6 @@
             max-width: 340px;
         }
 
-        /* 欄位與對齊：向右移動一點點讓畫面更平衡 */
         .info-field {
             display: flex;
             flex-direction: row;
@@ -397,18 +396,17 @@
 
         @media (min-width: 600px) {
             .info-field {
-                margin-left: 20px; /* 電腦版往右推一點 */
+                margin-left: 20px;
             }
         }
 
         @media (max-width: 599px) {
             .info-field {
                 max-width: 290px;
-                margin: 0 auto;  /* 手機版維持居中對齊 */
+                margin: 0 auto;
             }
         }
 
-        /* 固定標籤寬度與置中文字 */
         .info-label {
             background-color: #62C49A;
             color: var(--white);
@@ -447,7 +445,6 @@
             .members-names { font-size: 14.5px; }
             .cortis-date { font-size: 13.5px; }
             
-            /* 手機版微調 */
             .info-field { gap: 8px; }
             .info-label { width: 52px; font-size: 12px; }
             .info-value { font-size: 14px; }
@@ -478,23 +475,68 @@
         .dashed-card h3 { font-size: 13.5px; font-weight: 700; margin-bottom: 2px; }
         .dashed-card p { font-size: 11.5px; color: #555; line-height: 1.4; font-weight: 500; }
 
-        /* 影音頁 Filter Bar & Video Grid */
-        .filter-bar { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; width: 100%; }
-        #searchInput, #sortSelect { 
+        /* 影音頁 Filter Bar & Selects */
+        .filter-bar { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 10px; 
+            margin-bottom: 16px; 
+            width: 100%; 
+        }
+
+        .filter-row {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+        }
+
+        @media (min-width: 600px) {
+            .filter-row { flex-direction: row; }
+        }
+
+        /* 米色選單樣式 */
+        .bg-beige-select {
+            background-color: var(--bg-color);
+            color: var(--dark-green);
+            font-weight: 700;
+        }
+
+        #categorySelect, #songSelect, #stageTypeSelect, #searchInput, #sortSelect { 
             width: 100%; 
             padding: 8px 14px; 
             border: var(--border-style); 
             border-radius: 50px; 
             font-size: 13px; 
             font-family: 'Fredoka', 'GenSenRounded TC', sans-serif;
-            font-weight: 500; 
             outline: none; 
+            cursor: pointer;
+        }
+
+        #searchInput {
+            cursor: text;
         }
 
         @media (min-width: 600px) {
-            .filter-bar { flex-direction: row; }
             #searchInput { flex: 2; }
             #sortSelect { flex: 1; }
+            #songSelect, #stageTypeSelect { flex: 1; }
+        }
+
+        /* 舞台次級選單區塊 */
+        .sub-filter-row {
+            display: none; /* 預設隱藏，選擇舞台時顯示 */
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+            background: rgba(98, 196, 154, 0.12);
+            padding: 10px 12px;
+            border-radius: 16px;
+            border: 1.5px dashed var(--main-green);
+        }
+
+        @media (min-width: 600px) {
+            .sub-filter-row { flex-direction: row; }
         }
 
         .video-grid { display: grid; grid-template-columns: 1fr; gap: 14px; width: 100%; }
@@ -504,6 +546,23 @@
 
         .video-card { background: var(--white); border: var(--border-style); border-radius: 16px; overflow: hidden; box-shadow: 3px 3px 0px var(--dark-green); text-align: left; }
         .video-thumb { width: 100%; height: 120px; background-size: cover; background-position: center; border-bottom: var(--border-style); position: relative; }
+        
+        /* 卡片左上角綠底白字類別標籤 */
+        .video-cat-badge {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            background-color: var(--main-green);
+            color: var(--white);
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            border: 1px solid var(--dark-green);
+            box-shadow: 1px 1px 0px var(--dark-green);
+        }
+
+        /* 卡片右下角 YouTube 標籤 */
         .video-play-badge { font-family: 'Fredoka', sans-serif; position: absolute; bottom: 6px; right: 6px; background: var(--accent-pink); color: var(--white); padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; border: 1px solid var(--dark-green); }
         .video-content { padding: 10px; }
         .video-title { font-size: 12px; font-weight: 700; color: var(--dark-green); text-decoration: none; margin-bottom: 4px; display: block; }
@@ -642,13 +701,51 @@
             <section class="section-container">
                 <div class="badge badge-green">MEDIA ARCHIVE</div>
                 <div class="card card-shadow-green" style="flex-direction: column; justify-content: flex-start;">
+                    
+                    <!-- 篩選控制列 -->
                     <div class="filter-bar">
-                        <input type="text" id="searchInput" placeholder="🔍 輸入關鍵字（如：MV、成員名字）...">
-                        <select id="sortSelect">
-                            <option value="newest">📅 由新到舊</option>
-                            <option value="oldest">📅 由舊到新</option>
-                        </select>
+                        <!-- 第一層：米色大類別選單 -->
+                        <div class="filter-row">
+                            <select id="categorySelect" class="bg-beige-select">
+                                <option value="ALL">📂 全部分類</option>
+                                <option value="八點檔">📺 八點檔</option>
+                                <option value="MV">🎵 MV</option>
+                                <option value="舞台">🎤 舞台</option>
+                                <option value="雜誌">📖 雜誌</option>
+                                <option value="採訪">🎙️ 採訪</option>
+                                <option value="綜藝">🎡 綜藝</option>
+                            </select>
+                        </div>
+
+                        <!-- 舞台專用二級選單 (預設隱藏) -->
+                        <div class="sub-filter-row" id="stageSubFilter">
+                            <select id="songSelect" class="bg-beige-select">
+                                <option value="ALL">🎶 全部歌曲</option>
+                                <!-- 可依需求擴充歌曲清單 -->
+                                <option value="GO!">GO!</option>
+                                <option value="DREAM">DREAM</option>
+                            </select>
+                            <select id="stageTypeSelect" class="bg-beige-select">
+                                <option value="ALL">👥 全體 / 所有直拍</option>
+                                <option value="GROUP">全體舞台 (Group)</option>
+                                <option value="MARTIN">直拍 - MARTIN</option>
+                                <option value="JAMES">直拍 - JAMES</option>
+                                <option value="JUHOON">直拍 - JUHOON</option>
+                                <option value="SEONGHYEON">直拍 - SEONGHYEON</option>
+                                <option value="KEONHO">直拍 - KEONHO</option>
+                            </select>
+                        </div>
+
+                        <!-- 第二層：搜尋欄與時間排序 -->
+                        <div class="filter-row">
+                            <input type="text" id="searchInput" placeholder="🔍 輸入關鍵字（如：MV、成員名字）...">
+                            <select id="sortSelect">
+                                <option value="newest">📅 由新到舊</option>
+                                <option value="oldest">📅 由舊到新</option>
+                            </select>
+                        </div>
                     </div>
+
                     <div class="video-grid" id="videoGrid"></div>
                 </div>
             </section>
@@ -690,7 +787,7 @@
             document.getElementById('eventModal').style.display = 'none';
         }
 
-        // 輪播切換資料 (圖片檔名設為大寫 .PNG)
+        // 輪播切換資料
         const slides = [
             // 團體簡介
             {
@@ -829,24 +926,57 @@
             .catch(err => console.log("videos.json 載入中或未找到"));
 
         function processAndRender() {
+            const selectedCategory = document.getElementById('categorySelect').value;
+            const selectedSong = document.getElementById('songSelect').value;
+            const selectedStageType = document.getElementById('stageTypeSelect').value;
             const searchText = document.getElementById('searchInput').value.toLowerCase();
             const sortOrder = document.getElementById('sortSelect').value;
 
+            // 1. 分類篩選
             let filtered = allVideos.filter(v => {
-                return v.title.toLowerCase().includes(searchText) || v.tags.some(t => t.toLowerCase().includes(searchText));
+                if (selectedCategory !== 'ALL') {
+                    const vCat = v.category || (v.tags && v.tags[0]) || '';
+                    if (vCat !== selectedCategory) return false;
+                }
+
+                // 若選擇「舞台」，進一步檢查歌曲與類型/直拍
+                if (selectedCategory === '舞台') {
+                    if (selectedSong !== 'ALL' && v.song !== selectedSong) {
+                        return false;
+                    }
+                    if (selectedStageType !== 'ALL') {
+                        if (selectedStageType === 'GROUP') {
+                            if (v.type && v.type !== 'GROUP') return false;
+                        } else {
+                            if (v.type !== selectedStageType) return false;
+                        }
+                    }
+                }
+
+                // 2. 關鍵字搜尋
+                const matchSearch = v.title.toLowerCase().includes(searchText) || 
+                                    (v.tags && v.tags.some(t => t.toLowerCase().includes(searchText)));
+                
+                return matchSearch;
             });
 
+            // 3. 日期排序
             filtered.sort((a,b) => sortOrder === 'newest' ? new Date(b.date) - new Date(a.date) : new Date(a.date) - new Date(b.date));
             
+            // 4. 渲染卡片
             const grid = document.getElementById('videoGrid');
             if(filtered.length === 0) {
-                grid.innerHTML = `<p style="grid-column: 1/-1; padding: 20px; color: #888; font-size: 13px;">查無相關影片喔！</p>`;
+                grid.innerHTML = `<p style="grid-column: 1/-1; padding: 30px; color: #888; font-size: 13.5px;">查無相關影片喔！</p>`;
                 return;
             }
-            grid.innerHTML = filtered.map(v => `
+
+            grid.innerHTML = filtered.map(v => {
+                const catName = v.category || (v.tags ? v.tags[0] : '影音');
+                return `
                 <div class="video-card">
                     <a href="${v.url}" target="_blank">
                         <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/${v.id}/hqdefault.jpg')">
+                            <span class="video-cat-badge">${catName}</span>
                             <span class="video-play-badge">▶ YouTube</span>
                         </div>
                     </a>
@@ -856,11 +986,11 @@
                             <div class="video-date">📅 ${v.date}</div>
                         </div>
                         <div class="video-tags">
-                            ${v.tags.map(t => `<button class="tag-btn" onclick="filterTag('${t}')">#${t}</button>`).join('')}
+                            ${v.tags ? v.tags.map(t => `<button class="tag-btn" onclick="filterTag('${t}')">#${t}</button>`).join('') : ''}
                         </div>
                     </div>
                 </div>
-            `).join('');
+            `}).join('');
         }
 
         function filterTag(tag) {
@@ -868,6 +998,21 @@
             processAndRender();
         }
 
+        // 切換主分類時的邏輯（控制舞台二級選單）
+        document.getElementById('categorySelect').addEventListener('change', function() {
+            const subFilter = document.getElementById('stageSubFilter');
+            if (this.value === '舞台') {
+                subFilter.style.display = 'flex';
+            } else {
+                subFilter.style.display = 'none';
+                document.getElementById('songSelect').value = 'ALL';
+                document.getElementById('stageTypeSelect').value = 'ALL';
+            }
+            processAndRender();
+        });
+
+        document.getElementById('songSelect').addEventListener('change', processAndRender);
+        document.getElementById('stageTypeSelect').addEventListener('change', processAndRender);
         document.getElementById('searchInput').addEventListener('input', processAndRender);
         document.getElementById('sortSelect').addEventListener('change', processAndRender);
     </script>
