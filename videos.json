@@ -23,6 +23,177 @@
   "category": "MV",
   "tags": ["Visualizer", "MOTION", "CORTIS", "Juicy J"]
   },
+  [
+  {
+    "id": "WXS-o57VJ5w",
+    "title": "CORTIS (코르티스) 'GO!' Official MV",
+    "date": "2025-08-10",
+    "url": "https://youtu.be/WXS-o57VJ5w",
+    "category": "MV",
+    "song": "GO!",
+    "type": "GROUP",
+    "tags": ["MV", "GO!", "OfficialMV"]
+  },
+  {
+    "id": "6MYB61hUaFg",
+    "title": "CORTIS (코르티스) 'What You Want' Conceptual Performance Film",
+    "date": "2025-08-18",
+    "url": "https://youtu.be/6MYB61hUaFg",
+    "category": "MV",
+    "song": "What You Want",
+    "type": "GROUP",
+    "tags": ["MV", "What You Want", "PerformanceFilm"]
+  },
+  {
+    "id": "e2OpbOv_JiQ",
+    "title": "CORTIS (코르티스) 'What You Want' Official MV",
+    "date": "2025-08-19",
+    "url": "https://youtu.be/e2OpbOv_JiQ",
+    "category": "MV",
+    "song": "What You Want",
+    "type": "GROUP",
+    "tags": ["MV", "What You Want", "OfficialMV"]
+  },
+  {
+    "id": "J8s5-vsT_Dc",
+    "title": "CORTIS (코르티스) 'What You Want (feat. Teezo Touchdown)' Official Visualizer",
+    "date": "2025-08-22",
+    "url": "https://youtu.be/J8s5-vsT_Dc",
+    "category": "MV",
+    "song": "What You Want",
+    "type": "GROUP",
+    "tags": ["MV", "What You Want", "Visualizer"]
+  },
+  {
+    "id": "of-FAob3X9w",
+    "title": "CORTIS (코르티스) 'What You Want' MV (Original Ver.)",
+    "date": "2025-08-26",
+    "url": "https://youtu.be/of-FAob3X9w",
+    "category": "MV",
+    "song": "What You Want",
+    "type": "GROUP",
+    "tags": ["MV", "What You Want", "OriginalVer"]
+  },
+  {
+    "id": "42wfEs7oIP8",
+    "title": "CORTIS (코르티스) 'FaSHioN' Official MV",
+    "date": "2025-09-08",
+    "url": "https://youtu.be/42wfEs7oIP8",
+    "category": "MV",
+    "song": "FaSHioN",
+    "type": "GROUP",
+    "tags": ["MV", "FaSHioN", "OfficialMV"]
+  },
+  {
+    "id": "WVkftpFjIDg",
+    "title": "CORTIS (코르티스) 'FaSHioN' Conceptual Performance Film",
+    "date": "2025-09-09",
+    "url": "https://youtu.be/WVkftpFjIDg",
+    "category": "MV",
+    "song": "FaSHioN",
+    "type": "GROUP",
+    "tags": ["MV", "FaSHioN", "PerformanceFilm"]
+  },
+  {
+    "id": "8QZeXvOjgGE",
+    "title": "CORTIS (코르티스) 'JoyRide' Official MV",
+    "date": "2025-09-20",
+    "url": "https://youtu.be/8QZeXvOjgGE",
+    "category": "MV",
+    "song": "JoyRide",
+    "type": "GROUP",
+    "tags": ["MV", "JoyRide", "OfficialMV"]
+  },
+  {
+    "id": "8ej2YOBsimQ",
+    "title": "CORTIS (코르티스) 'Lullaby' Official MV",
+    "date": "2025-09-28",
+    "url": "https://youtu.be/8ej2YOBsimQ",
+    "category": "MV",
+    "song": "Lullaby",
+    "type": "GROUP",
+    "tags": ["MV", "Lullaby", "OfficialMV"]
+  },
+  {
+    "id": "U6BDbXIah-Y",
+    "title": "CORTIS (코르티스) 'REDRED' Official MV",
+    "date": "2026-04-20",
+    "url": "https://youtu.be/U6BDbXIah-Y",
+    "category": "MV",
+    "song": "REDRED",
+    "type": "GROUP",
+    "tags": ["MV", "REDRED", "OfficialMV"]
+  },
+  {
+    "id": "a1vHjBy85TU",
+    "title": "CORTIS (코르티스) 'REDRED' Conceptual Performance Film",
+    "date": "2026-04-21",
+    "url": "https://youtu.be/a1vHjBy85TU",
+    "category": "MV",
+    "song": "REDRED",
+    "type": "GROUP",
+    "tags": ["MV", "REDRED", "PerformanceFilm"]
+  },
+  {
+    "id": "7112WTKl45Y",
+    "title": "CORTIS (코르티스) 'REDRED' MV (Original Ver.)",
+    "date": "2026-04-29",
+    "url": "https://youtu.be/7112WTKl45Y",
+    "category": "MV",
+    "song": "REDRED",
+    "type": "GROUP",
+    "tags": ["MV", "REDRED", "OriginalVer"]
+  },
+  {
+    "id": "kRpaqR5sbf0",
+    "title": "CORTIS (코르티스) 'TNT' Official MV",
+    "date": "2026-05-04",
+    "url": "https://youtu.be/kRpaqR5sbf0",
+    "category": "MV",
+    "song": "TNT",
+    "type": "GROUP",
+    "tags": ["MV", "TNT", "OfficialMV"]
+  },
+  {
+    "id": "XgmdslsEJ1M",
+    "title": "CORTIS (코르티스) 'TNT' Conceptual Performance Film",
+    "date": "2026-05-05",
+    "url": "https://youtu.be/XgmdslsEJ1M",
+    "category": "MV",
+    "song": "TNT",
+    "type": "GROUP",
+    "tags": ["MV", "TNT", "PerformanceFilm"]
+  },
+  {
+    "id": "nCElUD0jvgo",
+    "title": "CORTIS (코르티스) 'ACAI' Official MV",
+    "date": "2026-05-11",
+    "url": "https://youtu.be/nCElUD0jvgo",
+    "category": "MV",
+    "song": "ACAI",
+    "type": "GROUP",
+    "tags": ["MV", "ACAI", "OfficialMV"]
+  },
+  {
+    "id": "SSVT8bLjguY",
+    "title": "CORTIS (코르티스) 'ACAI' Conceptual Performance Film",
+    "date": "2026-05-12",
+    "url": "https://youtu.be/SSVT8bLjguY",
+    "category": "MV",
+    "song": "ACAI",
+    "type": "GROUP",
+    "tags": ["MV", "ACAI", "PerformanceFilm"]
+  },
+  {
+    "id": "hOIY3OhvD94",
+    "title": "CORTIS (코르티스) 'Blue Lips' Official MV",
+    "date": "2026-05-30",
+    "url": "https://youtu.be/hOIY3OhvD94",
+    "category": "MV",
+    "song": "Blue Lips",
+    "type": "GROUP",
+    "tags": ["MV", "Blue Lips", "OfficialMV"]
+  }, 
   {
     "id": "YHuDm8-19IE",
     "title": "[풀영상] 코르티스가 KBS뉴스에?…도착부터 떠나는 순간까지 / KBS 2026.09.05",
