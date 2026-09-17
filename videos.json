@@ -22,5 +22,55 @@
   "url": "https://www.youtube.com/watch?v=h7ITAdTxdxM",
   "category": "MV",
   "tags": ["Visualizer", "MOTION", "CORTIS", "Juicy J"]
+  },
+  {
+    "id": "YHuDm8-19IE",
+    "title": "[풀영상] 코르티스가 KBS뉴스에?…도착부터 떠나는 순간까지 / KBS 2026.09.05",
+    "date": "2026-09-05",
+    "url": "https://youtu.be/YHuDm8-19IE",
+    "category": "採訪",
+    "song": "REDRED",
+    "type": "GROUP",
+    "tags": ["採訪", "KBSNews", "全體"]
+  },
+  {
+    "id": "PIQ16PKDHqk",
+    "title": "CORTIS 코르티스 - YOUNGCREATORCREW [Music Bank] | KBS WORLD TV 260605",
+    "date": "2026-06-05",
+    "url": "https://youtu.be/PIQ16PKDHqk",
+    "category": "舞台",
+    "song": "YOUNGCREATORCREW",
+    "type": "GROUP",
+    "tags": ["舞台", "YOUNGCREATORCREW", "全體"]
+  },
+  {
+    "id": "7ComIC5ZEb0",
+    "title": "'SPECIAL STAGE' CORTIS - JoyRide #엠카운트다운 EP.915 | Mnet 260205",
+    "date": "2026-02-05",
+    "url": "https://youtu.be/7ComIC5ZEb0",
+    "category": "舞台",
+    "song": "JoyRide",
+    "type": "GROUP",
+    "tags": ["舞台", "JoyRide", "全體"]
+  },
+  {
+    "id": "9Mo2tH8frK0",
+    "title": "[MPD직캠] 코르티스 1위 앵콜 직캠 4K 'REDRED' (CORTIS FanCam No.1 Encore) | @MCOUNTDOWN 260514",
+    "date": "2026-05-14",
+    "url": "https://youtu.be/9Mo2tH8frK0",
+    "category": "安可舞台",
+    "song": "REDRED",
+    "type": "GROUP",
+    "tags": ["安可舞台", "REDRED", "1位"]
+  },
+  {
+    "id": "-yN5MqB2_7Q",
+    "title": "[#음중직캠] CORTIS JUHOON (코르티스 주훈) – REDRED FanCam | 쇼! 음악중심 260425",
+    "date": "2026-04-25",
+    "url": "https://youtu.be/-yN5MqB2_7Q",
+    "category": "舞台",
+    "song": "REDRED",
+    "type": "JUHOON",
+    "tags": ["舞台", "REDRED", "JUHOON", "直拍"]
   }
 ]
