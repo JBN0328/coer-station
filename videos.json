@@ -5,7 +5,9 @@
     "date": "2026-08-23",
     "url": "https://www.youtube.com/watch?v=OhdvNHmJDsw",
     "category": "MV",
-    "tags": ["Visualizer", "MONEYMONEYMONEY", "CORTIS"]
+    "song": "MONEYMONEYMONEY",
+    "type": "GROUP",
+    "tags": ["Visualizer", "MONEYMONEYMONEY", "CORTIS", "全體"]
   },
   {
     "id": "TZWiMoQpr8c",
@@ -13,7 +15,9 @@
     "date": "2026-08-24",
     "url": "https://www.youtube.com/watch?v=TZWiMoQpr8c",
     "category": "MV",
-    "tags": ["Visualizer", "PACKITUP", "CORTIS"]
+    "song": "PACK IT UP",
+    "type": "GROUP",
+    "tags": ["Visualizer", "PACKITUP", "CORTIS", "全體"]
   },
   {
     "id": "h7ITAdTxdxM",
@@ -21,7 +25,9 @@
     "date": "2026-07-31",
     "url": "https://www.youtube.com/watch?v=h7ITAdTxdxM",
     "category": "MV",
-    "tags": ["Visualizer", "MOTION", "CORTIS", "Juicy J"]
+    "song": "MOTION",
+    "type": "GROUP",
+    "tags": ["Visualizer", "MOTION", "CORTIS", "Juicy J", "全體"]
   },
   {
     "id": "WXS-o57VJ5w",
@@ -29,7 +35,9 @@
     "date": "2025-08-10",
     "url": "https://youtu.be/WXS-o57VJ5w",
     "category": "MV",
-    "tags": ["MV", "GO!", "OfficialMV"]
+    "song": "GO!",
+    "type": "GROUP",
+    "tags": ["MV", "GO!", "OfficialMV", "全體"]
   },
   {
     "id": "6MYB61hUaFg",
@@ -37,7 +45,9 @@
     "date": "2025-08-18",
     "url": "https://youtu.be/6MYB61hUaFg",
     "category": "MV",
-    "tags": ["MV", "What You Want", "PerformanceFilm"]
+    "song": "What You Want",
+    "type": "GROUP",
+    "tags": ["MV", "What You Want", "PerformanceFilm", "全體"]
   },
   {
     "id": "e2OpbOv_JiQ",
@@ -45,7 +55,9 @@
     "date": "2025-08-19",
     "url": "https://youtu.be/e2OpbOv_JiQ",
     "category": "MV",
-    "tags": ["MV", "What You Want", "OfficialMV"]
+    "song": "What You Want",
+    "type": "GROUP",
+    "tags": ["MV", "What You Want", "OfficialMV", "全體"]
   },
   {
     "id": "J8s5-vsT_Dc",
@@ -53,7 +65,9 @@
     "date": "2025-08-22",
     "url": "https://youtu.be/J8s5-vsT_Dc",
     "category": "MV",
-    "tags": ["MV", "What You Want", "Visualizer"]
+    "song": "What You Want",
+    "type": "GROUP",
+    "tags": ["MV", "What You Want", "Visualizer", "全體"]
   },
   {
     "id": "of-FAob3X9w",
@@ -61,7 +75,9 @@
     "date": "2025-08-26",
     "url": "https://youtu.be/of-FAob3X9w",
     "category": "MV",
-    "tags": ["MV", "What You Want", "OriginalVer"]
+    "song": "What You Want",
+    "type": "GROUP",
+    "tags": ["MV", "What You Want", "OriginalVer", "全體"]
   },
   {
     "id": "42wfEs7oIP8",
@@ -69,7 +85,9 @@
     "date": "2025-09-08",
     "url": "https://youtu.be/42wfEs7oIP8",
     "category": "MV",
-    "tags": ["MV", "FaSHioN", "OfficialMV"]
+    "song": "FaSHioN",
+    "type": "GROUP",
+    "tags": ["MV", "FaSHioN", "OfficialMV", "全體"]
   },
   {
     "id": "WVkftpFjIDg",
@@ -77,7 +95,9 @@
     "date": "2025-09-09",
     "url": "https://youtu.be/WVkftpFjIDg",
     "category": "MV",
-    "tags": ["MV", "FaSHioN", "PerformanceFilm"]
+    "song": "FaSHioN",
+    "type": "GROUP",
+    "tags": ["MV", "FaSHioN", "PerformanceFilm", "全體"]
   },
   {
     "id": "8QZeXvOjgGE",
@@ -85,7 +105,9 @@
     "date": "2025-09-20",
     "url": "https://youtu.be/8QZeXvOjgGE",
     "category": "MV",
-    "tags": ["MV", "JoyRide", "OfficialMV"]
+    "song": "JoyRide",
+    "type": "GROUP",
+    "tags": ["MV", "JoyRide", "OfficialMV", "全體"]
   },
   {
     "id": "8ej2YOBsimQ",
@@ -93,7 +115,9 @@
     "date": "2025-09-28",
     "url": "https://youtu.be/8ej2YOBsimQ",
     "category": "MV",
-    "tags": ["MV", "Lullaby", "OfficialMV"]
+    "song": "Lullaby",
+    "type": "GROUP",
+    "tags": ["MV", "Lullaby", "OfficialMV", "全體"]
   },
   {
     "id": "U6BDbXIah-Y",
@@ -101,7 +125,9 @@
     "date": "2026-04-20",
     "url": "https://youtu.be/U6BDbXIah-Y",
     "category": "MV",
-    "tags": ["MV", "REDRED", "OfficialMV"]
+    "song": "REDRED",
+    "type": "GROUP",
+    "tags": ["MV", "REDRED", "OfficialMV", "全體"]
   },
   {
     "id": "a1vHjBy85TU",
@@ -109,7 +135,9 @@
     "date": "2026-04-21",
     "url": "https://youtu.be/a1vHjBy85TU",
     "category": "MV",
-    "tags": ["MV", "REDRED", "PerformanceFilm"]
+    "song": "REDRED",
+    "type": "GROUP",
+    "tags": ["MV", "REDRED", "PerformanceFilm", "全體"]
   },
   {
     "id": "7112WTKl45Y",
@@ -117,7 +145,9 @@
     "date": "2026-04-29",
     "url": "https://youtu.be/7112WTKl45Y",
     "category": "MV",
-    "tags": ["MV", "REDRED", "OriginalVer"]
+    "song": "REDRED",
+    "type": "GROUP",
+    "tags": ["MV", "REDRED", "OriginalVer", "全體"]
   },
   {
     "id": "kRpaqR5sbf0",
@@ -125,7 +155,9 @@
     "date": "2026-05-04",
     "url": "https://youtu.be/kRpaqR5sbf0",
     "category": "MV",
-    "tags": ["MV", "TNT", "OfficialMV"]
+    "song": "TNT",
+    "type": "GROUP",
+    "tags": ["MV", "TNT", "OfficialMV", "全體"]
   },
   {
     "id": "XgmdslsEJ1M",
@@ -133,7 +165,9 @@
     "date": "2026-05-05",
     "url": "https://youtu.be/XgmdslsEJ1M",
     "category": "MV",
-    "tags": ["MV", "TNT", "PerformanceFilm"]
+    "song": "TNT",
+    "type": "GROUP",
+    "tags": ["MV", "TNT", "PerformanceFilm", "全體"]
   },
   {
     "id": "nCElUD0jvgo",
@@ -141,7 +175,9 @@
     "date": "2026-05-11",
     "url": "https://youtu.be/nCElUD0jvgo",
     "category": "MV",
-    "tags": ["MV", "ACAI", "OfficialMV"]
+    "song": "ACAI",
+    "type": "GROUP",
+    "tags": ["MV", "ACAI", "OfficialMV", "全體"]
   },
   {
     "id": "SSVT8bLjguY",
@@ -149,7 +185,9 @@
     "date": "2026-05-12",
     "url": "https://youtu.be/SSVT8bLjguY",
     "category": "MV",
-    "tags": ["MV", "ACAI", "PerformanceFilm"]
+    "song": "ACAI",
+    "type": "GROUP",
+    "tags": ["MV", "ACAI", "PerformanceFilm", "全體"]
   },
   {
     "id": "hOIY3OhvD94",
@@ -157,7 +195,9 @@
     "date": "2026-05-30",
     "url": "https://youtu.be/hOIY3OhvD94",
     "category": "MV",
-    "tags": ["MV", "Blue Lips", "OfficialMV"]
+    "song": "Blue Lips",
+    "type": "GROUP",
+    "tags": ["MV", "Blue Lips", "OfficialMV", "全體"]
   },
   {
     "id": "gSm-eTRl9JE",
@@ -165,7 +205,9 @@
     "date": "2025-08-22",
     "url": "https://youtu.be/gSm-eTRl9JE",
     "category": "練習室",
-    "tags": ["練習室", "GO!", "Fixver"]
+    "song": "GO!",
+    "type": "GROUP",
+    "tags": ["練習室", "GO!", "Fixver", "全體"]
   },
   {
     "id": "daSFSbDyi9A",
@@ -173,7 +215,9 @@
     "date": "2025-08-22",
     "url": "https://youtu.be/daSFSbDyi9A",
     "category": "練習室",
-    "tags": ["練習室", "What You Want", "Fixver"]
+    "song": "What You Want",
+    "type": "GROUP",
+    "tags": ["練習室", "What You Want", "Fixver", "全體"]
   },
   {
     "id": "xfDwI_csntE",
@@ -181,7 +225,9 @@
     "date": "2025-08-24",
     "url": "https://youtu.be/xfDwI_csntE",
     "category": "練習室",
-    "tags": ["練習室", "GO!", "Movingver"]
+    "song": "GO!",
+    "type": "GROUP",
+    "tags": ["練習室", "GO!", "Movingver", "全體"]
   },
   {
     "id": "LaFEhyMF-ss",
@@ -189,7 +235,9 @@
     "date": "2025-08-24",
     "url": "https://youtu.be/LaFEhyMF-ss",
     "category": "練習室",
-    "tags": ["練習室", "What You Want", "Movingver"]
+    "song": "What You Want",
+    "type": "GROUP",
+    "tags": ["練習室", "What You Want", "Movingver", "全體"]
   },
   {
     "id": "T-76o4XpGh8",
@@ -197,7 +245,9 @@
     "date": "2025-12-31",
     "url": "https://youtu.be/T-76o4XpGh8",
     "category": "練習室",
-    "tags": ["練習室", "MIC Drop", "Cover"]
+    "song": "MIC Drop",
+    "type": "GROUP",
+    "tags": ["練習室", "MIC Drop", "Cover", "全體"]
   },
   {
     "id": "V7LxVsIo8vg",
@@ -205,7 +255,9 @@
     "date": "2026-01-02",
     "url": "https://youtu.be/V7LxVsIo8vg",
     "category": "練習室",
-    "tags": ["練習室", "Deja Vu", "Cover"]
+    "song": "Deja Vu",
+    "type": "GROUP",
+    "tags": ["練習室", "Deja Vu", "Cover", "全體"]
   },
   {
     "id": "6vewvgkj4us",
@@ -213,7 +265,9 @@
     "date": "2026-05-08",
     "url": "https://youtu.be/6vewvgkj4us",
     "category": "練習室",
-    "tags": ["練習室", "TNT", "Fixver"]
+    "song": "TNT",
+    "type": "GROUP",
+    "tags": ["練習室", "TNT", "Fixver", "全體"]
   },
   {
     "id": "ysg6GVlzz9Y",
@@ -221,7 +275,9 @@
     "date": "2026-05-20",
     "url": "https://youtu.be/ysg6GVlzz9Y",
     "category": "練習室",
-    "tags": ["練習室", "ACAI", "Fixver"]
+    "song": "ACAI",
+    "type": "GROUP",
+    "tags": ["練習室", "ACAI", "Fixver", "全體"]
   },
   {
     "id": "YHuDm8-19IE",
