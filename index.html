@@ -25,17 +25,13 @@
             --badge-pink: #FF8BA7;
             --accent-orange: #FFA834;
             --white: #FFFFFF;
-            --member-bg: #FDFFE2;
             --border-style: 2px solid var(--dark-green);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
-        html {
-            height: 100%;
-        }
+        html { height: 100%; }
 
-        /* 綠色點點背景與全域字體設定 */
         body {
             min-height: 100%;
             display: flex;
@@ -142,7 +138,6 @@
             color: var(--white);
         }
 
-        /* 內容包裝層 */
         .content-wrapper {
             flex: 1 0 auto;
             width: 100%;
@@ -152,7 +147,6 @@
         .page-section { display: none; width: 100%; }
         .page-section.active { display: block; }
 
-        /* 統一三個區塊的容器尺寸 */
         .section-container {
             width: 100%;
             max-width: 720px;
@@ -162,7 +156,6 @@
             position: relative;
         }
 
-        /* 統一三個標題膠囊標籤 Badge */
         .badge {
             font-family: 'Fredoka', 'GenSenRounded TC', sans-serif;
             display: inline-flex;
@@ -186,7 +179,6 @@
         .badge-green { background-color: #5DBB93; }
         .badge-orange { background-color: #FFA834; }
 
-        /* 卡片設計 - 自動適應高度 (RWD) */
         .card {
             background: var(--white);
             border: var(--border-style);
@@ -204,9 +196,7 @@
         }
 
         @media (max-width: 500px) {
-            .card {
-                padding: 28px 12px 20px 12px;
-            }
+            .card { padding: 28px 12px 20px 12px; }
         }
 
         .card-shadow-pink { box-shadow: 4px 4px 0px #FFD1DC; }
@@ -215,7 +205,6 @@
 
         .highlight-bold { font-weight: 900; }
 
-        /* 首頁 WELCOME 粉紅大字標題樣式 */
         .welcome-title {
             color: var(--badge-pink);
             font-size: 22px;
@@ -225,7 +214,6 @@
             display: block;
         }
 
-        /* 輪播區塊與按鈕定位 */
         .carousel-wrapper {
             width: 100%;
             position: relative;
@@ -234,7 +222,6 @@
             align-items: center;
         }
 
-        /* 左右切換按鈕 */
         .arrow-btn {
             position: absolute;
             top: 50%;
@@ -277,12 +264,6 @@
             box-shadow: 3.5px 3.5px 0px var(--dark-green);
         }
 
-        .arrow-btn:active {
-            transform: translateY(-50%) scale(0.95);
-            box-shadow: 1px 1px 0px var(--dark-green);
-        }
-
-        /* 依照圖片要求的文字樣式與配色 */
         .cortis-card-content {
             width: 100%;
             text-align: center;
@@ -301,206 +282,42 @@
             color: var(--dark-green);
         }
 
-        /* 特定字母綠色效果 */
-        .cortis-title .g-text, .member-name {
-            color: #62C49A;
-        }
+        .cortis-title .g-text, .member-name { color: #62C49A; }
 
-        .cortis-desc {
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--dark-green);
-            line-height: 1.5;
-        }
+        .cortis-desc { font-size: 15px; font-weight: 700; color: var(--dark-green); line-height: 1.5; }
+        .cortis-members-wrapper { display: flex; flex-direction: column; align-items: center; gap: 4px; width: 100%; }
+        .members-label { font-size: 14.5px; font-weight: 500; color: var(--dark-green); }
+        .members-names { font-family: 'Fredoka', 'GenSenRounded TC', sans-serif; font-size: 16px; font-weight: 900; color: var(--dark-green); letter-spacing: 0.5px; line-height: 1.6; max-width: 90%; }
+        .cortis-date { font-size: 14.5px; font-weight: 500; color: var(--dark-green); }
+        .cortis-date strong { font-weight: 900; }
 
-        .cortis-members-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            width: 100%;
-        }
+        .member-profile-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; width: 100%; padding: 10px; }
+        @media (min-width: 600px) { .member-profile-card { flex-direction: row; gap: 24px; } }
 
-        .members-label {
-            font-size: 14.5px;
-            font-weight: 500;
-            color: var(--dark-green);
-        }
+        .member-avatar { width: 130px; height: 130px; border-radius: 16px; object-fit: cover; border: 2px solid var(--dark-green); flex-shrink: 0; background-color: #eee; }
+        .member-info { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; width: 100%; max-width: 340px; }
+        .info-field { display: flex; flex-direction: row; align-items: center; gap: 12px; width: 100%; }
+        @media (min-width: 600px) { .info-field { margin-left: 20px; } }
+        @media (max-width: 599px) { .info-field { max-width: 290px; margin: 0 auto; } }
 
-        .members-names {
-            font-family: 'Fredoka', 'GenSenRounded TC', sans-serif;
-            font-size: 16px;
-            font-weight: 900;
-            color: var(--dark-green);
-            letter-spacing: 0.5px;
-            line-height: 1.6;
-            max-width: 90%;
-        }
+        .info-label { background-color: #62C49A; color: var(--white); width: 58px; text-align: center; padding: 3px 0; border-radius: 4px; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+        .info-value { font-size: 16px; font-weight: 700; color: var(--dark-green); text-align: left; flex: 1; }
+        .info-value .en-name { font-family: 'Fredoka', sans-serif; font-size: 17px; font-weight: 700; }
 
-        .cortis-date {
-            font-size: 14.5px;
-            font-weight: 500;
-            color: var(--dark-green);
-        }
+        .grid-3 { display: grid; grid-template-columns: 1fr; gap: 12px; width: 100%; }
+        @media (min-width: 600px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
 
-        .cortis-date strong {
-            font-weight: 900;
-        }
-
-        /* 個別成員卡片專用樣式 */
-        .member-profile-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            width: 100%;
-            padding: 10px 10px;
-        }
-
-        @media (min-width: 600px) {
-            .member-profile-card {
-                flex-direction: row;
-                justify-content: center;
-                gap: 24px;
-            }
-        }
-
-        .member-avatar {
-            width: 130px;
-            height: 130px;
-            border-radius: 16px;
-            object-fit: cover;
-            border: 2px solid var(--dark-green);
-            flex-shrink: 0;
-            background-color: #eee;
-        }
-
-        .member-info {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 12px;
-            width: 100%;
-            max-width: 340px;
-        }
-
-        .info-field {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 12px;
-            width: 100%;
-        }
-
-        @media (min-width: 600px) {
-            .info-field {
-                margin-left: 20px;
-            }
-        }
-
-        @media (max-width: 599px) {
-            .info-field {
-                max-width: 290px;
-                margin: 0 auto;
-            }
-        }
-
-        .info-label {
-            background-color: #62C49A;
-            color: var(--white);
-            width: 58px;
-            text-align: center;
-            padding: 3px 0;
-            border-radius: 4px;
-            font-size: 13px;
-            font-weight: 700;
-            display: inline-block;
-            flex-shrink: 0;
-        }
-
-        .info-value {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--dark-green);
-            text-align: left;
-            flex: 1;
-        }
-
-        .info-value .en-name {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 17px;
-            font-weight: 700;
-        }
-
-        @media (max-width: 500px) {
-            .member-avatar {
-                width: 110px;
-                height: 110px;
-            }
-            .cortis-title, .welcome-title { font-size: 18px; }
-            .cortis-desc { font-size: 13.5px; }
-            .members-label { font-size: 13.5px; }
-            .members-names { font-size: 14.5px; }
-            .cortis-date { font-size: 13.5px; }
-            
-            .info-field { gap: 8px; }
-            .info-label { width: 52px; font-size: 12px; }
-            .info-value { font-size: 14px; }
-            .info-value .en-name { font-size: 15px; }
-        }
-
-        /* 第三區塊 How To Use */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-            width: 100%;
-        }
-
-        @media (min-width: 600px) {
-            .grid-3 { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        .dashed-card {
-            background: var(--white);
-            border: 2px dashed var(--accent-orange);
-            border-radius: 14px;
-            padding: 12px 8px;
-            text-align: center;
-        }
-
+        .dashed-card { background: var(--white); border: 2px dashed var(--accent-orange); border-radius: 14px; padding: 12px 8px; text-align: center; }
         .icon-box { font-size: 20px; margin-bottom: 4px; }
         .dashed-card h3 { font-size: 13.5px; font-weight: 700; margin-bottom: 2px; }
         .dashed-card p { font-size: 11.5px; color: #555; line-height: 1.4; font-weight: 500; }
 
-        /* 影音頁 Filter Bar & Selects */
-        .filter-bar { 
-            display: flex; 
-            flex-direction: column; 
-            gap: 10px; 
-            margin-bottom: 16px; 
-            width: 100%; 
-        }
+        /* 影音頁 Filter Bar */
+        .filter-bar { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; width: 100%; }
+        .filter-row { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+        @media (min-width: 600px) { .filter-row { flex-direction: row; } }
 
-        .filter-row {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            width: 100%;
-        }
-
-        @media (min-width: 600px) {
-            .filter-row { flex-direction: row; }
-        }
-
-        /* 米色選單樣式 */
-        .bg-beige-select {
-            background-color: var(--bg-color);
-            color: var(--dark-green);
-            font-weight: 700;
-        }
+        .bg-beige-select { background-color: var(--bg-color); color: var(--dark-green); font-weight: 700; }
 
         #categorySelect, #songSelect, #stageTypeSelect, #searchInput, #sortSelect { 
             width: 100%; 
@@ -513,9 +330,7 @@
             cursor: pointer;
         }
 
-        #searchInput {
-            cursor: text;
-        }
+        #searchInput { cursor: text; }
 
         @media (min-width: 600px) {
             #searchInput { flex: 2; }
@@ -523,9 +338,9 @@
             #songSelect, #stageTypeSelect { flex: 1; }
         }
 
-        /* 舞台次級選單區塊 */
+        /* 舞台次級選單 */
         .sub-filter-row {
-            display: none; /* 預設隱藏，選擇舞台時顯示 */
+            display: none;
             flex-direction: column;
             gap: 8px;
             width: 100%;
@@ -535,19 +350,14 @@
             border: 1.5px dashed var(--main-green);
         }
 
-        @media (min-width: 600px) {
-            .sub-filter-row { flex-direction: row; }
-        }
+        @media (min-width: 600px) { .sub-filter-row { flex-direction: row; } }
 
         .video-grid { display: grid; grid-template-columns: 1fr; gap: 14px; width: 100%; }
-        @media (min-width: 500px) {
-            .video-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
-        }
+        @media (min-width: 500px) { .video-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); } }
 
         .video-card { background: var(--white); border: var(--border-style); border-radius: 16px; overflow: hidden; box-shadow: 3px 3px 0px var(--dark-green); text-align: left; }
         .video-thumb { width: 100%; height: 120px; background-size: cover; background-position: center; border-bottom: var(--border-style); position: relative; }
         
-        /* 卡片左上角綠底白字類別標籤 */
         .video-cat-badge {
             position: absolute;
             top: 6px;
@@ -562,10 +372,9 @@
             box-shadow: 1px 1px 0px var(--dark-green);
         }
 
-        /* 卡片右下角 YouTube 標籤 */
         .video-play-badge { font-family: 'Fredoka', sans-serif; position: absolute; bottom: 6px; right: 6px; background: var(--accent-pink); color: var(--white); padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; border: 1px solid var(--dark-green); }
         .video-content { padding: 10px; }
-        .video-title { font-size: 12px; font-weight: 700; color: var(--dark-green); text-decoration: none; margin-bottom: 4px; display: block; }
+        .video-title { font-size: 12px; font-weight: 700; color: var(--dark-green); text-decoration: none; margin-bottom: 4px; display: block; line-height: 1.4; }
         .video-date { font-size: 10px; color: #666; margin-bottom: 6px; }
         .video-tags { display: flex; flex-wrap: wrap; gap: 4px; }
         .tag-btn { 
@@ -579,7 +388,6 @@
             cursor: pointer; 
         }
 
-        /* Footer Sticky */
         footer {
             margin-top: auto;
             background-color: var(--dark-green);
@@ -592,7 +400,6 @@
             flex-shrink: 0;
         }
 
-        /* Modal 彈窗 */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; z-index: 1000; padding: 16px; }
         .modal-box { background: var(--white); border: var(--border-style); border-radius: 18px; padding: 20px; width: 100%; max-width: 280px; text-align: center; box-shadow: 3px 3px 0px var(--dark-green); }
         .close-btn { margin-top: 12px; background: var(--accent-pink); color: var(--white); border: var(--border-style); padding: 4px 16px; border-radius: 20px; font-weight: 700; font-family: 'Fredoka', 'GenSenRounded TC', sans-serif; cursor: pointer; }
@@ -622,12 +429,9 @@
         </ul>
     </nav>
 
-    <!-- 主內容區塊包裝層 -->
     <div class="content-wrapper">
-        <!-- 【首頁】區塊 -->
+        <!-- 【首頁】 -->
         <main id="page-home" class="page-section active">
-            
-            <!-- 第一段：ABOUT COER STATION -->
             <section id="about-site" class="section-container">
                 <div class="badge badge-pink">ABOUT COER STATION</div>
                 <div class="card card-shadow-pink">
@@ -640,27 +444,17 @@
                 </div>
             </section>
 
-            <!-- 第二段：ABOUT CORTIS -->
             <section id="about-cortis" class="section-container">
                 <div class="badge badge-green">ABOUT CORTIS</div>
-                
                 <div class="carousel-wrapper">
-                    <!-- 左切換按鈕 -->
                     <button class="arrow-btn prev-btn" onclick="prevSlide()">&lt;</button>
-
-                    <!-- 中央卡片框 -->
                     <div class="card card-shadow-green" id="carousel-card">
-                        <div class="cortis-card-content" id="carousel-content">
-                            <!-- JS 自動帶入卡片內容 -->
-                        </div>
+                        <div class="cortis-card-content" id="carousel-content"></div>
                     </div>
-
-                    <!-- 右切換按鈕 -->
                     <button class="arrow-btn next-btn" onclick="nextSlide()">&gt;</button>
                 </div>
             </section>
 
-            <!-- 第三段：HOW TO USE -->
             <section id="how-to-use" class="section-container">
                 <div class="badge badge-orange">HOW TO USE</div>
                 <div class="card card-shadow-orange">
@@ -683,10 +477,9 @@
                     </div>
                 </div>
             </section>
-
         </main>
 
-        <!-- 【介紹頁】區塊 -->
+        <!-- 【介紹頁】 -->
         <main id="page-about" class="page-section">
             <section class="section-container">
                 <div class="badge badge-pink">INTRODUCTION</div>
@@ -696,47 +489,54 @@
             </section>
         </main>
 
-        <!-- 【影音頁】區塊 -->
+        <!-- 【影音頁】 -->
         <main id="page-media" class="page-section">
             <section class="section-container">
                 <div class="badge badge-green">MEDIA ARCHIVE</div>
                 <div class="card card-shadow-green" style="flex-direction: column; justify-content: flex-start;">
                     
-                    <!-- 篩選控制列 -->
                     <div class="filter-bar">
-                        <!-- 第一層：米色大類別選單 -->
+                        <!-- 第一層：10 個米色大類別選單 -->
                         <div class="filter-row">
                             <select id="categorySelect" class="bg-beige-select">
                                 <option value="ALL">📂 全部分類</option>
                                 <option value="八點檔">📺 八點檔</option>
+                                <option value="練習室">🕺 練習室</option>
                                 <option value="MV">🎵 MV</option>
                                 <option value="舞台">🎤 舞台</option>
+                                <option value="安可舞台">🏆 安可舞台</option>
+                                <option value="演出">✨ 演出</option>
                                 <option value="雜誌">📖 雜誌</option>
                                 <option value="採訪">🎙️ 採訪</option>
                                 <option value="綜藝">🎡 綜藝</option>
                             </select>
                         </div>
 
-                        <!-- 舞台專用二級選單 (預設隱藏) -->
+                        <!-- 舞台專用二級選單 (包含指定 9 首歌曲) -->
                         <div class="sub-filter-row" id="stageSubFilter">
                             <select id="songSelect" class="bg-beige-select">
                                 <option value="ALL">🎶 全部歌曲</option>
-                                <!-- 可依需求擴充歌曲清單 -->
                                 <option value="GO!">GO!</option>
-                                <option value="DREAM">DREAM</option>
+                                <option value="What You Want">What You Want</option>
+                                <option value="FaSHioN">FaSHioN</option>
+                                <option value="JoyRide">JoyRide</option>
+                                <option value="REDRED">REDRED</option>
+                                <option value="TNT">TNT</option>
+                                <option value="ACAI">ACAI</option>
+                                <option value="YOUNGCREATORCREW">YOUNGCREATORCREW</option>
                             </select>
                             <select id="stageTypeSelect" class="bg-beige-select">
                                 <option value="ALL">👥 全體 / 所有直拍</option>
                                 <option value="GROUP">全體舞台 (Group)</option>
-                                <option value="MARTIN">直拍 - MARTIN</option>
-                                <option value="JAMES">直拍 - JAMES</option>
-                                <option value="JUHOON">直拍 - JUHOON</option>
-                                <option value="SEONGHYEON">直拍 - SEONGHYEON</option>
-                                <option value="KEONHO">直拍 - KEONHO</option>
+                                <option value="MARTIN">直拍 - MARTIN (朴宇宙)</option>
+                                <option value="JAMES">直拍 - JAMES (趙雨凡)</option>
+                                <option value="JUHOON">直拍 - JUHOON (金主訓)</option>
+                                <option value="SEONGHYEON">直拍 - SEONGHYEON (嚴成玹)</option>
+                                <option value="KEONHO">直拍 - KEONHO (安乾鎬)</option>
                             </select>
                         </div>
 
-                        <!-- 第二層：搜尋欄與時間排序 -->
+                        <!-- 搜尋欄與時間排序 -->
                         <div class="filter-row">
                             <input type="text" id="searchInput" placeholder="🔍 輸入關鍵字（如：MV、成員名字）...">
                             <select id="sortSelect">
@@ -752,13 +552,11 @@
         </main>
     </div>
 
-    <!-- 頁尾 -->
     <footer>
         <p><strong>Fan Site for CORTIS • COER STATION</strong></p>
         <p style="margin-top: 4px; opacity: 0.8;">COER STATION is an unofficial fan website dedicated to CORTIS. All dynamic content, official images, and video copyrights belong to their respective owners. No copyright infringement intended.</p>
     </footer>
 
-    <!-- Modal 彈窗 -->
     <div class="modal-overlay" id="eventModal">
         <div class="modal-box">
             <h3 style="color: var(--main-green);" id="modalTitle">🎉 提醒</h3>
@@ -787,9 +585,7 @@
             document.getElementById('eventModal').style.display = 'none';
         }
 
-        // 輪播切換資料
         const slides = [
-            // 團體簡介
             {
                 type: 'group',
                 html: `
@@ -811,7 +607,6 @@
                     </div>
                 `
             },
-            // 成員 1: MARTIN
             {
                 type: 'member',
                 html: `
@@ -830,7 +625,6 @@
                     </div>
                 `
             },
-            // 成員 2: JAMES
             {
                 type: 'member',
                 html: `
@@ -849,7 +643,6 @@
                     </div>
                 `
             },
-            // 成員 3: JUHOON
             {
                 type: 'member',
                 html: `
@@ -868,7 +661,6 @@
                     </div>
                 `
             },
-            // 成員 4: SEONGHYEON
             {
                 type: 'member',
                 html: `
@@ -887,7 +679,6 @@
                     </div>
                 `
             },
-            // 成員 5: KEONHO
             {
                 type: 'member',
                 html: `
@@ -916,7 +707,6 @@
         function nextSlide() { currentSlide = (currentSlide + 1) % slides.length; updateSlide(); }
         function prevSlide() { currentSlide = (currentSlide - 1 + slides.length) % slides.length; updateSlide(); }
 
-        // 初始化載入第一張卡片
         updateSlide();
 
         let allVideos = [];
@@ -932,14 +722,14 @@
             const searchText = document.getElementById('searchInput').value.toLowerCase();
             const sortOrder = document.getElementById('sortSelect').value;
 
-            // 1. 分類篩選
+            // 篩選邏輯
             let filtered = allVideos.filter(v => {
                 if (selectedCategory !== 'ALL') {
                     const vCat = v.category || (v.tags && v.tags[0]) || '';
                     if (vCat !== selectedCategory) return false;
                 }
 
-                // 若選擇「舞台」，進一步檢查歌曲與類型/直拍
+                // 舞台專屬二級條件篩選
                 if (selectedCategory === '舞台') {
                     if (selectedSong !== 'ALL' && v.song !== selectedSong) {
                         return false;
@@ -953,17 +743,17 @@
                     }
                 }
 
-                // 2. 關鍵字搜尋
+                // 關鍵字比對 (標題/標籤)
                 const matchSearch = v.title.toLowerCase().includes(searchText) || 
                                     (v.tags && v.tags.some(t => t.toLowerCase().includes(searchText)));
                 
                 return matchSearch;
             });
 
-            // 3. 日期排序
+            // 排序
             filtered.sort((a,b) => sortOrder === 'newest' ? new Date(b.date) - new Date(a.date) : new Date(a.date) - new Date(b.date));
             
-            // 4. 渲染卡片
+            // 渲染列表
             const grid = document.getElementById('videoGrid');
             if(filtered.length === 0) {
                 grid.innerHTML = `<p style="grid-column: 1/-1; padding: 30px; color: #888; font-size: 13.5px;">查無相關影片喔！</p>`;
@@ -998,7 +788,7 @@
             processAndRender();
         }
 
-        // 切換主分類時的邏輯（控制舞台二級選單）
+        // 當選擇「舞台」類別時，動態展開二級選單
         document.getElementById('categorySelect').addEventListener('change', function() {
             const subFilter = document.getElementById('stageSubFilter');
             if (this.value === '舞台') {
