@@ -347,16 +347,23 @@
             font-weight: 900;
         }
 
-        /* 個別成員卡片專用樣式 - 完美對齊與固定寬度 */
+        /* 個別成員卡片專用樣式 */
         .member-profile-card {
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* 手機版預設：照片在上，資訊在下 */
             align-items: center;
             justify-content: center;
             gap: 16px;
             width: 100%;
-            text-align: center;
             padding: 10px 10px;
+        }
+
+        @media (min-width: 600px) {
+            .member-profile-card {
+                flex-direction: row; /* 電腦版：照片在左，資訊在右 */
+                justify-content: center;
+                gap: 24px;
+            }
         }
 
         .member-avatar {
@@ -372,36 +379,47 @@
         .member-info {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             gap: 12px;
             width: 100%;
-            max-width: 360px;
+            max-width: 340px;
         }
 
-        /* 將整體資料欄位設定為固定開頭對齊 */
+        /* 欄位與對齊：向右移動一點點讓畫面更平衡 */
         .info-field {
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: flex-start; /* 靠左排列，確保標籤對齊 */
+            justify-content: flex-start;
             gap: 12px;
             width: 100%;
-            max-width: 320px;            /* 限制最大寬度以維持中央整體感 */
-            margin: 0 auto;              /* 在卡片中央對齊 */
+        }
+
+        @media (min-width: 600px) {
+            .info-field {
+                margin-left: 20px; /* 電腦版往右推一點 */
+            }
+        }
+
+        @media (max-width: 599px) {
+            .info-field {
+                max-width: 290px;
+                margin: 0 auto;  /* 手機版維持居中對齊 */
+            }
         }
 
         /* 固定標籤寬度與置中文字 */
         .info-label {
             background-color: #62C49A;
             color: var(--white);
-            width: 58px;                 /* 固定所有綠色標題的寬度 */
-            text-align: center;          /* 文字在綠框內置中 */
+            width: 58px;
+            text-align: center;
             padding: 3px 0;
             border-radius: 4px;
             font-size: 13px;
             font-weight: 700;
             display: inline-block;
-            flex-shrink: 0;              /* 絕不被擠壓 */
+            flex-shrink: 0;
         }
 
         .info-value {
@@ -409,7 +427,7 @@
             font-weight: 700;
             color: var(--dark-green);
             text-align: left;
-            flex: 1;                     /* 自動填滿剩餘空間 */
+            flex: 1;
         }
 
         .info-value .en-name {
@@ -430,7 +448,7 @@
             .cortis-date { font-size: 13.5px; }
             
             /* 手機版微調 */
-            .info-field { gap: 8px; max-width: 280px; }
+            .info-field { gap: 8px; }
             .info-label { width: 52px; font-size: 12px; }
             .info-value { font-size: 14px; }
             .info-value .en-name { font-size: 15px; }
